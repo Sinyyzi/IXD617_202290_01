@@ -1,0 +1,49 @@
+/* basic layout */
+html,body{
+	width: auto;
+	height: 100%;
+	margin: 120px;
+}
+
+
+body{
+	background-color: #fffffd;
+	background-repeat: repeat;
+	background-size: cover;
+	background-position: center;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items:  stretch;
+	font-family: farm-new, sans-serif;
+    font-weight: 300;
+    font-style: normal; 
+	font-size: 18px;
+	color: #1e1e1e;
+	
+}
+
+nav a{
+	padding: 1em;
+	color: #c71e56;
+}
+
+h3{
+    font-family: elza-text,sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+
+.me_img{
+	max-height: 250px;
+	float: right;
+	margin-left: 50px;
+	margin-bottom: 15px;
+
+}
+.work_img{
+	max-height: 400px;
+	margin-left: 50px;
+	margin-bottom: 15px;
+}
+
