@@ -4,8 +4,8 @@ IXD 617 Advanced Tech: Mobile Web
 ## Xinyi Shen
 
 ### Important Links
-- Home link coming - waiting on Godaddy domain resolution
+- http://xinyi-shen.com/aau/IXD617/
 - https://github.com/Sinyyzi/IXD617_202290_01
 
 ### Assignment Links
-- Profile link coming - waiting on Godaddy domain resolution
+- http://xinyi-shen.com/aau/IXD617/m1/index.html
