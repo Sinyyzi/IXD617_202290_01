@@ -56,3 +56,55 @@
     pointer-events: initial;
     opacity:1;
 }
+
+h3{
+    text-align: center;
+}
+
+/**
+    Modified based on https://www.w3schools.com/css/css_image_gallery.asp
+**/
+.gallery {
+    padding: 0 1em;
+}
+
+.sunset-item { 
+    border: 1px solid #ccc;
+}
+
+.sunset-item:hover {
+    border: 1px solid #777;
+}
+
+.sunset-item img {
+    width: 100%;
+    height: auto;
+}
+
+.sunset-name {
+    padding: 15px;
+    text-align: center;
+}
+  
+* {
+    box-sizing: border-box;
+}
+  
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+  
+@media only screen and (max-width: 700px) {
+    .responsive {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+}
+  
+@media only screen and (max-width: 375px) {
+    .responsive {
+      width: 100%;
+    }
+}

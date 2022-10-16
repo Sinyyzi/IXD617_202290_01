@@ -5,28 +5,27 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <title>Chasing</title>
-        <link rel="stylesheet" href="css/tab_group.css">
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" href="css/sunset_details.css">
         <script src="../lib/js/jquery-2.2.4.min.js"></script>
         <script src="../lib/js/jquery.mobile-1.4.5.min.js"></script>
-        <script src="js/tab_group.js"></script>
+        <script src="js/sunset_details.js"></script>
     </head>
     
     <body>
-        <header>
-            <h1>Sunset Details</h1>
-
-            <ul>
-                <li>
-                    <a href="#" data-rel="back">Back</a>
-                </li>
-                <li class="flex-stretch"></li>
-                <li>
-                    <a href="#">Edit</a>
-                </li>
-            </ul>
-        </header>
-        <div>
-            <h2>Sunset Details</h2>
+        <div data-role="page">
+            <div data-role="header">
+              <a href="" class="header-button" data-rel="back">Back</a>
+              <div class="sunset-title">
+                <h3>App Title</h3>
+              </div>
+              <a href="" class="header-button">Edit</a>
+            </div>
+            <div>
+                <div class="sunset-image">
+                    <img width="800" height="500">
+                </div> 
+            </div>
         </div>
     </body>
 </html>

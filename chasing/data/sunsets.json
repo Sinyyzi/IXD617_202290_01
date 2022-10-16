@@ -1,0 +1,51 @@
+[{
+    "id": 1,
+    "name": "Mori Point,CA",
+    "img": "img/mori_point.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Kapalua Bay,HA",
+    "img": "img/lands_end.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Venice Beach,CA",
+    "img": "img/venice_beach.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Golden Gate,CA",
+    "img": "img/goldengate.jpeg"
+  },
+  {
+    "id": 5,
+    "name": "San Francisco,CA",
+    "img": "img/sf_sunset1.jpg"
+  },
+  {
+    "id": 6,
+    "name": "San Francisco,CA",
+    "img": "img/sf_sunset2.jpeg"
+  },
+  {
+    "id": 7,
+    "name": "Battery Spencer,CA",
+    "img": "img/battery_spencer.jpeg"
+  },
+  {
+    "id": 8,
+    "name": "Marin,CA",
+    "img": "img/marin_headlands.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "San Francisco,CA",
+    "img": "img/sf_sunset3.jpeg"
+  },
+  {
+    "id": 10,
+    "name": "San Francisco,CA",
+    "img": "img/sf_sunset4.jpg"
+  }
+]

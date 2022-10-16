@@ -4,6 +4,9 @@
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta http-Equiv="Cache-Control" Content="no-cache" />
+        <meta http-Equiv="Pragma" Content="no-cache" />
+        <meta http-Equiv="Expires" Content="0" />
         <title>Chasing</title>
         <link rel="stylesheet" href="css/tab_group.css">
         <script src="../lib/js/jquery-2.2.4.min.js"></script>
@@ -11,32 +14,22 @@
         <script src="js/tab_group.js"></script>
     </head>
 
-    <div id="tabgroup">
+   
+ <div id="tabgroup">
         <div class="tabgroup">
+            <div style="text-align:center;" class="tabheader">
+                <h3>Explore</h3>
+            </div>
             <div class="contentset">
                 <div class="content active">
-                    <h3>Explore</h3>
                     <div>
-                        <p>Here goes the map viewport</p>
-                    </div>
+                        <img src="img/map.png" alt="mapImage">
+                    </div> 
                 </div>
                 <div class="content">
-                    <h3>My Sunsets</h3>
-                    <div>
-                        <div class="sunset-item" onclick="window.location.href = 'sunset_details.html'">Sunset 1</div>
-                        <div class="sunset-item" onclick="window.location.href = 'sunset_details.html'">Sunset 2</div>
-                        <div class="sunset-item" onclick="window.location.href = 'sunset_details.html'">Sunset 3</div>
-                        <div class="sunset-item" onclick="window.location.href = 'sunset_details.html'">Sunset 4</div>
-                        <div class="sunset-item" onclick="window.location.href = 'sunset_details.html'">Sunset 5</div>
-                        <div class="sunset-item" onclick="window.location.href = 'sunset_details.html'">Sunset 6</div>
-                        <div class="sunset-item" onclick="window.location.href = 'sunset_details.html'">Sunset 7</div>
-                        <div class="sunset-item" onclick="window.location.href = 'sunset_details.html'">Sunset 8</div>
-                        <div class="sunset-item" onclick="window.location.href = 'sunset_details.html'">Sunset 9</div>
-                        <div class="sunset-item" onclick="window.location.href = 'sunset_details.html'">Sunset 10</div>
-                    </div>
+                    <div class="gallery"></div> 
                 </div>
                 <div class="content">
-                    <h3>Setting</h3>
                     <div>
                         <p>Setting page for various preferences</p>
                     </div>
@@ -49,4 +42,32 @@
             </div>
         </div>
     </div>
+
+        <!-- RECENT PAGE -->
+      <!--  <section data-role="page" id="recent-page">
+            <div data-role="main">
+                <div class="map"></div>
+    
+                <div class="floater top left">
+                    <a href="#" class="btn-circle" data-activate="#recent-add-modal">☰</a>
+                </div>
+    
+                <div id="recent-add-modal" class="modal">
+                    <div class="modal-back transparent" data-deactivate="#recent-add-modal"></div>
+                    <div class="modal-drawer left">
+                        <div class="modal-head">Head</div>
+                        <div class="modal-body">Body</div>
+                    </div>
+                </div>
+            </div>
+            <footer data-role="footer">
+                <ul>
+                    <li><a href="#recent-page">Recent</a></li>
+                    <li><a href="#list-page">List</a></li>
+                    <li><a href="#user-profile-page">Profile</a></li>
+                </ul>
+            </footer>
+        </section>
+    -->
+
 </html>
