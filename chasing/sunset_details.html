@@ -7,25 +7,63 @@
         <title>Chasing</title>
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
         <link rel="stylesheet" href="css/sunset_details.css">
+
         <script src="../lib/js/jquery-2.2.4.min.js"></script>
         <script src="../lib/js/jquery.mobile-1.4.5.min.js"></script>
         <script src="js/sunset_details.js"></script>
     </head>
-    
+
     <body>
         <div data-role="page">
-            <div data-role="header">
+            <div data-role="header" class="topHeader">
               <a href="" class="header-button" data-rel="back">Back</a>
               <div class="sunset-title">
                 <h3>App Title</h3>
               </div>
-              <a href="" class="header-button">Edit</a>
+              <a class="header-button" id="sunset-details-edit">Edit</a>
             </div>
+          
             <div>
                 <div class="sunset-image">
                     <img width="800" height="500">
                 </div> 
             </div>
-        </div>
+
+            <div class="sunset-info">
+                <div>
+                    <h3>Location</h3>
+                </div>
+                <div>
+                    <h3>Best Time</h3>
+                </div>
+                <div>
+                    <h3>Note</h3>
+                </div>
+            </div>
+        </div>     
+<!--                                   
+                    <form>
+                      <label for="location">Location</label>
+                      <input type="text" id="location" name="location" placeholder="New location">
+                      <label for="best-time">Best Time</label>
+                      <input type="text" id="best-time" name="best-time" placeholder="What's the best time to visit?">
+                      <label for="note">Note</label>
+                      <input type="text" id="note" name="note" placeholder="Anything that you want to add?">
+                    </form>
+                    
+                    <div class="container-login100-form-btn p-t-75 p-b-31">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button id="signupButton" class="login100-form-btn">
+                                Save and Back
+                            </button>
+                            <script type="text/javascript">
+                                document.getElementById("signupButton").onclick = function () {
+                                    location.href = "content.html";
+                                };
+                            </script>
+                        </div>
+                    </div>
+                  -->
     </body>
 </html>

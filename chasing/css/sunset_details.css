@@ -1,8 +1,40 @@
+/* body, html {
+	height: 100%;
+} */
+
 h3{
     text-align: center;
 }
+
+.topHeader{
+    display: flex;
+  justify-content: center;
+}
+
 
 .sunset-image img {
     width: 100%;
     height: auto;
 }
+
+.sunset-info{
+    text-align: left;
+}
+
+
+    /* .display-flex { display:flex; }
+    .display-inline-flex { display:inline-flex; }
+    .display-block { display:block; }
+    .display-inline-block { display:inline-block; }
+
+    .flex-align-center { align-items:center; }
+    .flex-justify-center { justify-content:center; }
+
+    .flex-none { flex:none; }
+    .flex-stretch { flex: 1 1 auto; }
+
+    .flex-column { flex-direction:column; }
+
+    .overscroll { overflow: auto; } */
+
+

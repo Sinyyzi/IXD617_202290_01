@@ -26,7 +26,16 @@ $(()=>{
 
         let text = $(this).text();
         $(".tabheader h3").html(text);
-    })
+    });
+
+    $(".js-logout").on("click", function(e) {
+        sessionStorage.removeItem("userId");
+        checkUserId();
+    });
+
+    $(".btn-circle").on("click", function(e) {
+        location.href = "sunset_editor.html"
+    });
 
     $.mobile.loading().hide();
 });

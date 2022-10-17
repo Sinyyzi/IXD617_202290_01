@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <title>Chasing</title>
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" type="text/css" href="css/util.css"> 
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/sunset_editor.css">
+        <script src="../lib/js/jquery-2.2.4.min.js"></script>
+        <script src="../lib/js/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/sunset_editor.js"></script>
+    </head>
+    
+    <body>
+        <div class="sunset-editor-title">
+          <h3>App Title</h3>
+        </div>
+
+        <div class="limiter">
+            <div>
+              <div class="sunset-image">
+                  <img width="800" height="500">
+              </div> 
+            </div>
+
+            <form class="login100-form">
+                <div class="wrap-input100">
+                  <span class="label-input100">Name</span>
+                  <input class="input100" data-wrapper-class="ui-custom" type="text" id="sunset-editor-name" placeholder="Name of Sunset">
+                </div>
+                <div class="wrap-input100">
+                    <span class="label-input100">Location</span>
+                    <input class="input100" data-wrapper-class="ui-custom" type="text" name="sunset-editor-location" placeholder="New location">
+                </div>
+
+                <div class="wrap-input100">
+                    <span class="label-input100">Best Time</span>
+                    <input class="input100" data-wrapper-class="ui-custom" type="text" name="sunset-editor-best-time" placeholder="Best time to see the sunset">
+                    
+                </div>
+
+                <div class="wrap-input100">
+                    <span class="label-input100">Notes</span>
+                    <input class="input100" data-wrapper-class="ui-custom" type="text" name="sunset-editor-notes" placeholder="Any thing you want to add?">
+                </div>
+                
+                <div class="container-login100-form-btn p-t-75">
+                    <div class="sunset-editor-save-btn">
+                        Save
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn p-t-20 p-b-10">
+                    <div class="sunset-editor-cancel-btn" data-rel="back">
+                        Cancel
+                    </div>
+              </div>
+            </form>
+        </div>
+    </body>
+</html>

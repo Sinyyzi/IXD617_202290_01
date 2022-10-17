@@ -1,5 +1,5 @@
 $(()=>{
-    // Copied from Stack overlow
+    // Source from Stack overlow
     var id = window.location.hash.substring(1);
     $.getJSON("data/sunsets.json", function(data){
         for (var i = 0, len = data.length; i < len; i++) {
@@ -10,4 +10,12 @@ $(()=>{
             }
         }
     });
+
+    $("#sunset-details-edit").on("click", function(e) {
+       editSunsetDetails(id);
+    });
 });
+
+function editSunsetDetails(sunsetId) {
+    location.href = "sunset_editor.html" + '#' + sunsetId; 
+}
