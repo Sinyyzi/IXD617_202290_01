@@ -18,14 +18,20 @@ $(()=>{
         let id = $(this).index();
 
         $(this).addClass("active")
-            .siblings().removeClass("active")
+            .siblings().removeClass("active");
 
         $(this).closest(".tabgroup")
             .find(".content").eq(id).addClass("active")
-            .siblings().removeClass("active")
+            .siblings().removeClass("active");
 
-        let text = $(this).text();
-        $(".tabheader h3").html(text);
+        if(id==0) {
+            $(".tabheader h3").html("Explore");
+        } else if(id==1) {
+            $(".tabheader h3").html("My Sunset");
+        } else {
+            $(".tabheader h3").html("Profile");
+        }
+        
     });
 
     $(".js-logout").on("click", function(e) {

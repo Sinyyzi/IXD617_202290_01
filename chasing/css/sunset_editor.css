@@ -10,7 +10,7 @@
 
  .sunset-editor-save-btn {
     border-radius: 25px;
-    font-family: Poppins-Medium;
+    font-family: lato, sans-serif;
     font-size: 16px;
     color: #fff;
     line-height: 1.2;
@@ -29,7 +29,7 @@
 
  .sunset-editor-cancel-btn {
     border-radius: 25px;
-    font-family: Poppins-Medium;
+    font-family: lato, sans-serif;
     font-size: 16px;
     color: #cb3c0e;
     line-height: 1.2;
@@ -50,8 +50,8 @@
  }
 
  .container-login100-form-btn {
-    margin-left: 10px;
-    margin-right: 10px;
+    /* margin-left: 10px;
+    margin-right: 10px; */
  }
 
  .sunset-image img {
@@ -71,14 +71,32 @@ h3{
 
 .wrap-input100{
    height: 4rem;
+   padding-top: 0.5rem;
+   padding-bottom: 0.5rem;
+   font-family: lato, sans-serif;
 }
 
 .label-input100{
-   line-height: 0.5
+   line-height: 0.5;
+   margin-top: 1rem;
 }
 
 .login100-form{
  
    margin:16px;
    width: auto;
+}
+
+.ui-input-text input{
+   height: 1rem;
+}
+
+.sunset-editor-container {
+   width: 100%;
+   margin: 0 auto;
+}
+
+.label-input100-editor{
+   color: rgb(146, 146, 146);
+   font-size: small;
 }
