@@ -1,12 +1,18 @@
 [{
     "id": 1,
     "name": "Mori Point,CA",
-    "img": "img/mori_point.jpg"
+    "img": "img/mori_point.jpg",
+    "location": "Beach at Mori Point",
+    "best_time":"August around 7:30pm",
+    "note":"Easy to park at the side road, bring a warm blanket."
   },
   {
     "id": 2,
     "name": "Kapalua Bay,HA",
-    "img": "img/lands_end.jpg"
+    "img": "img/lands_end.jpg",
+    "location": "Beach at Mori Point",
+    "best_time":"August around 7:30pm",
+    "note":"Easy to park at the side road, bring a warm blanket."
   },
   {
     "id": 3,

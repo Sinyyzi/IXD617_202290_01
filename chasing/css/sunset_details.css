@@ -6,11 +6,27 @@ h3{
     text-align: center;
 }
 
-.topHeader{
-    display: flex;
-  justify-content: center;
+h5{
+    text-align: center;
 }
 
+.ui-page .ui-header {
+    background: lightcoral !important;
+    color: #fff;
+    text-align: center;
+}
+
+.ui-page .ui-btn {
+    background: transparent;
+    background-color: transparent;
+    color: #fff;
+    border-color: transparent;
+}
+
+.ui-shadow {
+    box-shadow: none;
+    
+}
 
 .sunset-image img {
     width: 100%;

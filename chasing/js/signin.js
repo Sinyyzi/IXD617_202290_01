@@ -38,10 +38,12 @@ const checkSigninForm = () => {
         // Logged In
         console.log("Success");
         sessionStorage.userId = 3;
+        sessionStorage.userName = userval;
     } else {
         // Not Logged In
         console.log("Failure");
         sessionStorage.removeItem("userId");
+        sessionStorage.removeItem("userName");
 
         // $(".warning").html("");
         // setTimeout(()=>{$(".warning").html("");},3000)

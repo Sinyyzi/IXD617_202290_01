@@ -6,7 +6,9 @@ $(()=>{
             if(data[i].id == id) {
                 $(".sunset-title h3").text(data[i].name);
                 $(".sunset-image img").attr("src", data[i].img);
-                //$("#location").text(data[i].location);
+                $("#sunset-detail-location h5").text(data[i].location);
+                $("#sunset-detail-best-time h5").text(data[i].best_time);
+                $("#sunset-detail-note h5").text(data[i].note);
             }
         }
     });

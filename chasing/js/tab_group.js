@@ -37,6 +37,9 @@ $(()=>{
         location.href = "sunset_editor.html"
     });
 
+    var name = sessionStorage.userName;
+    $(".setting-user-name h3").text("Hello, " + name[0].toUpperCase() + name.substring(1));
+
     $.mobile.loading().hide();
 });
 

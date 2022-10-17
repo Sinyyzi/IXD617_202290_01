@@ -230,10 +230,18 @@ h3{
 
 /* PROFILE IMG */
 .user-image{
-    width: 300px;
-    height: 300px;
-    text-align: center;
-    margin: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
 }
-  
+
+.user-image img {
+    width: 40%;
+    height: 40%;
+}
+
+.js-logout {
+    display: flex;
+    justify-content: center;
+}
   
