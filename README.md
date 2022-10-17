@@ -12,6 +12,9 @@ IXD 617 Advanced Tech: Mobile Web
 - http://xinyi-shen.com/aau/IXD617/csszengarden/
 - http://xinyi-shen.com/aau/IXD617/finalProject_proposals/
 
+### Screenshots
+- http://xinyi-shen.com/aau/IXD617/screenshots/midterm
+
 ### Source
 - https://www.mockplus.com/blog/post/login-page-examples
 - https://www.w3schools.com/css/css_image_gallery.asp
