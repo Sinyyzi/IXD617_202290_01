@@ -237,14 +237,17 @@ h3{
 }
 
 .user-image img {
-    width: 40%;
-    height: 40%;
+    width: 50%;
+    height: 50%;
+    border-radius: 50% 50%;
 }
 
 .js-logout {
     display: flex;
     justify-content: center;
-    margin-top: 90%;
+    margin-top: 80%;
+    color: #777;
+    font-family: lato,sans-serif;
 }
   
 h3{
@@ -263,3 +266,12 @@ h3{
     aspect-ratio: 1/1;
     margin-top: 12px;
 }
+
+/* .edit-icon{
+    width: 16px;
+    aspect-ratio: 1/1;
+    margin: auto;
+    margin-left: 45%;
+    margin-right: 55%;
+    color: #777;
+} */
