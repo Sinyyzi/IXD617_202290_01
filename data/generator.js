@@ -2,13 +2,14 @@ const hex = () => chance.string({length:3, pool:'3456789AB'});
 const num = () => chance.natural({min:350,max:600});
 const getdate = (d1,d2) => dayjs(new Date(chance.natural({min:d1,max:d2}))).format('YYYY-MM-DD HH:mm:ss');
 
-const sunsettype = (type) => {
-    let types = {
-        'dog':['poodle','pug','pitbull'],
-        'cat':['calico','ginger','siamese','fat','stray'],
-        'horse':['black','brown','unicorn']
-    }
-    return chance.pickone(types[type]);
+const weathertype = () => {
+    let types = ['clear','sunny','snowy', 'cloudy', 'foggy','rainy','snowy', 'windy', 'sea of clouds'];
+    return chance.pickone(types);
+}
+
+const landscapetype = () => {
+    let types = ['skyscraper','park','beach','cliff','top of mountain','lake','river','desert'];
+    return chance.pickone(types);
 }
 
 /* Remain same */
@@ -24,23 +25,24 @@ const getUsers = () => (new Array(10)).fill(0).map((o,i)=>{
     return o;
 });
 
-const getSunset = () => (new Array(50)).fill(0).map((o,i)=>{
+const getSunsets = () => (new Array(250)).fill(0).map((o,i)=>{
     o = {};
     o.id = i + 1;
     o.user_id = chance.natural({min:1, max:10});
-    o.name = chance.first();
-    o.type = chance.pickone(['dog','cat','horse']);
-    o.breed = sunsettype(o.type);
+    o.location_id = chance.natural({min:1, max:50})
+    o.name = 'My Sunset' + o.id ;
+    o.weather = weathertype();
     o.description = chance.sentence();
     o.img = `https://via.placeholder.com/${num()}x${num()}/${hex()}/fff/?text=${o.name}`;
     o.date_create = getdate(Date.parse('2020/01/01'),Date.now());
+    o.landscape = landscapetype();
+    o.sunset_time = getdate(Date.parse('2020/01/01'),Date.now());
     return o;
 });
 
-const getLocations = () => (new Array(250)).fill(0).map((o,i)=>{
+const getLocations = () => (new Array(50)).fill(0).map((o,i)=>{
     o = {};
     o.id = i + 1;
-    o.sunset_id = chance.natural({min:1, max:50});
     o.lat = chance.latitude({min:37.67, max:37.80});
     o.lng = chance.longitude({min:-122.50, max:-122.37});
     o.description = chance.sentence();
@@ -49,8 +51,6 @@ const getLocations = () => (new Array(250)).fill(0).map((o,i)=>{
     o.date_create = getdate(Date.parse('2020/01/01'),Date.now());
     return o;
 });
-
-
 
 const exportAsJSON = (type,data) => {
     document.querySelector('.output').innerHTML = `

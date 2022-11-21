@@ -3,8 +3,8 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>chasing</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Chasing</title>
 
     <meta name="mobile-web-app-capable" content="yes">
 	<link rel="shortcut icon" href="./icon_256x256.png" type="image/x-icon">
@@ -14,27 +14,26 @@
     <link rel="stylesheet" href="src/css/app.css">
     
     <script src="lib/js/jquery-2.2.4.min.js"></script>
-    <script src="src/js/app.js" type="module"></script>
-    <script src="src/js/signin.js"></script>
     <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="src/js/app.js" type="module"></script>
 
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxFlGCvrBiz53-c8WDpV4bryeCiEkdNdc"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBg_SBJYKWBQLXFbqRk8VC4E6RDJliV-CE"
       defer
     ></script>
 
-    <meta http-Equiv="Cache-Control" Content="no-cache" />
+    <!-- <meta http-Equiv="Cache-Control" Content="no-cache" />
     <meta http-Equiv="Pragma" Content="no-cache" />
-    <meta http-Equiv="Expires" Content="0" />
+    <meta http-Equiv="Expires" Content="0" /> -->
 
 </head>
 <body>
     <!-- <iframe src="chasing/login.html" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">></iframe> -->
     
     <section data-role="page" id="signin-page">
-        <div data-role="main" class="display-flex flex-column">
+        <div data-role="main" class="display-flex flex-column flex-justify-center">
             <div class="flex-stretch signin-hero">
-                <img src="images/icons/dice.svg" alt="" class="hero-icon">
+                <img src="chasing/img/sf_sunset1.jpeg" alt="" class="hero-icon">
             </div>
             <form class="form" id="signin-form" data-ajax="false">
                 <div class="warning"></div>
@@ -49,7 +48,6 @@
                 <div class="form-control">
                     <input type="submit" class="form-button" value="Click me" data-role="none">
                 </div>
-
 
                 <div class="form-control" style="text-align:center; font-size: 0.7em">
                     Don't have an account? <a href="#signup-page">Sign Up!</a>
@@ -92,6 +90,13 @@
 
             <div class="floater bottom right">
                 <a href="#choose-animal-page" class="btn-circle">&plus;</a>
+            </div>
+
+            <div id="map-recent-modal" class="modal">
+                <div class="modal-back transparent" data-deactivate="#map-recent-modal"></div>
+                <div class="modal-drawer island top">
+                    <div class="modal-body"></div>
+                </div>
             </div>
         </div>
         <footer data-role="footer">

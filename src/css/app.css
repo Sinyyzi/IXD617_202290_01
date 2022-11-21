@@ -423,3 +423,19 @@ a {
     opacity:1;
     pointer-events: initial;
 }
+
+.sunset-map-description {
+    display:flex;
+}
+.sunset-map-image img{
+    width:80px;
+    aspect-ratio: 1 / 1;
+    vertical-align: middle;
+    object-fit:cover;
+}
+.sunset-map-body {
+    padding: 1em;
+}
+.sunset-map-body h1 {
+    margin:0;
+}
