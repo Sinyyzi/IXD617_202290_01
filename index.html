@@ -22,9 +22,9 @@
       defer
     ></script>
 
-    <!-- <meta http-Equiv="Cache-Control" Content="no-cache" />
+    <meta http-Equiv="Cache-Control" Content="no-cache" />
     <meta http-Equiv="Pragma" Content="no-cache" />
-    <meta http-Equiv="Expires" Content="0" /> -->
+    <meta http-Equiv="Expires" Content="0" />
 
 </head>
 <body>
@@ -102,15 +102,15 @@
         <footer data-role="footer">
             <ul>
                 <li><a href="#recent-page">
-                    <span class="footer-icon"><img class="icon" src="images/icons/map.svg"></span>
+                    <span class="footer-icon"><img class="icon" src="images/map.svg"></span>
                     <span class="footer-label">Recent</span>
                 </a></li>
                 <li><a href="#list-page">
-                    <span class="footer-icon"><img class="icon" src="images/icons/list.svg"></span>
+                    <span class="footer-icon"><img class="icon" src="images/list.svg"></span>
                     <span class="footer-label">List</span>
                 </a></li>
                 <li><a href="#user-profile-page">
-                    <span class="footer-icon"><img class="icon" src="images/icons/profile.svg"></span>
+                    <span class="footer-icon"><img class="icon" src="images/profile.svg"></span>
                     <span class="footer-label">Profile</span>
                 </a></li>
             </ul>
@@ -121,25 +121,25 @@
     <!-- LIST PAGE -->
     <section data-role="page" id="list-page">
         <header data-role="header">
-            <h1>Animal List</h1>
+            <h1>Sunset Spot List</h1>
         </header>
         <div data-role="main">
-            <div class="animallist"></div>
+            <div class="sunsetlist"></div>
             <div class="floater bottom right">
-                <a href="#" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
+                <a href="#sunset-add-page" class="btn-circle">&plus;</a>
             </div>
         </div>
         <footer data-role="footer">
             <ul>
                 <li><a href="#recent-page">
-                    <span class="footer-icon"><img class="icon" src="images/icons/map.svg"></span>
+                    <span class="footer-icon"><img class="icon" src="images/map.svg"></span>
                     <span class="footer-label">Recent</span>
                 </a></li>
                 <li><a href="#list-page">
-                    <span class="footer-icon"><img class="icon" src="images/icons/list.svg"></span>
+                    <span class="footer-icon"><img class="icon" src="images/list.svg"></span>
                     <span class="footer-label">List</span></a></li>
                 <li><a href="#user-profile-page">
-                    <span class="footer-icon"><img class="icon" src="images/icons/profile.svg"></span>
+                    <span class="footer-icon"><img class="icon" src="images/profile.svg"></span>
                     <span class="footer-label">Profile</span></a></li>
             </ul>
         </footer>
@@ -154,22 +154,39 @@
         </div>
     </section>
 
-
-
-
-    <!-- CHOOSE ANIMAL PAGE -->
-    <section data-role="page" id="choose-animal-page">
+    <!-- SUNSET ADD PAGE -->
+    <section data-role="page" id="sunset-add-page">
         <header data-role="header">
-            <h1>Choose animal</h1>
+            <h1>Add an Sunset Spot</h1>
             <ul>
                 <li><a href="#" data-rel="back">Back</a></li>
                 <li class="flex-stretch"></li>
-                <li><a href="#choose-location-page">Next</a></li>
+                <li><a href="#" class="js-submit-sunset-spot-add-form">Submit</a></li>
             </ul>
         </header>
-        <div data-role="main">
-            form for choose animal
-        </div>
+        <form data-role="main" data-ajax="false" id="sunset-add-form" class="padded display-flex flex-column full overscroll">
+            <div class="body"></div>
+        </form>
+    </section>
+
+    <!-- SUNSET EDIT PAGE -->
+    <section data-role="page" id="sunset-edit-page">
+        <header data-role="header">
+            <h1>Edit Sunset Spot</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#" class="js-submit-sunset-spot-edit-form">Submit</a></li>
+            </ul>
+        </header>
+        <form data-role="main" data-ajax="false" id="sunset-edit-form" class="padded display-flex flex-column full overscroll">
+            <div class="body"></div>
+            <div class="flex-stretch"></div>
+            
+            <div class="form-control">
+                <input class="form-button" type="submit" data-role="none" value="Submit">
+            </div>
+        </form>
     </section>
 
     <!-- CHOOSE LOCATION PAGE -->
@@ -184,6 +201,22 @@
         </header>
         <div data-role="main">
             <div class="map"></div>
+        </div>
+    </section>
+
+
+    <!-- CHOOSE ANIMAL PAGE -->
+    <section data-role="page" id="choose-animal-page">
+        <header data-role="header">
+            <h1>Choose animal</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#choose-location-page">Next</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            form for choose animal
         </div>
     </section>
 
@@ -207,45 +240,125 @@
 
     <!-- USER PROFILE PAGE -->
     <section data-role="page" id="user-profile-page">
-        <div data-role="main"></div>
+        <div data-role="main">
+            <div class="body"></div>
+
+            <div class="floater top right">
+                <a href="#user-settings-page">
+                    <img class="icon" style="font-size:1.3em" src="images/menu.svg" />
+                </a>
+            </div>
+        </div>
         <footer data-role="footer">
             <ul>
                 <li><a href="#recent-page">
-                    <span class="footer-icon"><img class="icon" src="images/icons/map.svg"></span>
+                    <span class="footer-icon"><img class="icon" src="images/map.svg"></span>
                     <span class="footer-label">Recent</span>
                 </a></li>
                 <li><a href="#list-page">
-                    <span class="footer-icon"><img class="icon" src="images/icons/list.svg"></span>
+                    <span class="footer-icon"><img class="icon" src="images/list.svg"></span>
                     <span class="footer-label">List</span></a></li>
                 <li><a href="#user-profile-page">
-                    <span class="footer-icon"><img class="icon" src="images/icons/profile.svg"></span>
+                    <span class="footer-icon"><img class="icon" src="images/profile.svg"></span>
                     <span class="footer-label">Profile</span></a></li>
             </ul>
         </footer>
     </section>
 
+    <!-- USER SETTINGS PAGE -->
+    <section data-role="page" id="user-settings-page">
+        <header data-role="header">
+            <h1>Settings</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+            </ul>
+        </header>
+        <div data-role="main">
+            <div class="settings">
+                <li><a href="#user-edit-page">Edit User</a></li>
+                <li><a href="#password-edit-page">Edit Password</a></li>
+                <li><a href="#" class="js-logout">Log out</a></li>
+            </ul>
+        </div>
+    </section>
 
-    <!-- Animal PROFILE PAGE -->
-    <section data-role="page" id="animal-profile-page">
+    <!-- USER EDIT PAGE -->
+    <section data-role="page" id="user-edit-page">
+        <header data-role="header">
+            <h1>Edit User</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#" class="js-submit-user-edit-form">Submit</a></li>
+            </ul>
+        </header>
+        <form data-role="main" data-ajax="false" id="user-edit-form" class="padded display-flex flex-column full overscroll">
+            <div class="body"></div>
+            <div class="flex-stretch"></div>
+            
+            <div class="form-control">
+                <input class="form-button" type="submit" data-role="none" value="Submit">
+            </div>
+        </form>
+    </section>
+
+    <!-- PASSWORD EDIT PAGE -->
+    <section data-role="page" id="password-edit-page">
+        <header data-role="header">
+            <h1>Edit Password</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#" class="js-submit-password-edit-form">Submit</a></li>
+            </ul>
+        </header>
+        <form data-role="main" data-ajax="false" id="password-edit-form" class="padded display-flex flex-column full overscroll">
+            <div class="body">
+                <div class="form-control">
+                    <label class="form-label" for="password-edit-password">New Password</label>
+                    <input class="form-input" type="password" id="password-edit-password" data-role="none" placeholder="Type a new password">
+                </div>
+                <div class="form-control">
+                    <label class="form-label" for="password-edit-confirm">Confirm New Password</label>
+                    <input class="form-input" type="password" id="password-edit-confirm" data-role="none" placeholder="Type the same password">
+                </div>
+            </div>
+        </form>
+    </section>
+
+
+
+
+
+    <!-- SUNSET PROFILE PAGE -->
+    <section data-role="page" id="sunset-profile-page">
         <header data-role="header">
             <h1></h1>
             <ul>
                 <li><a href="#" data-rel="back">Back</a></li>
                 <li class="flex-stretch"></li>
-                <li><a href="#animal-edit-page">Edit</a></li>
+                <li><a href="#sunset-edit-page">Edit</a></li>
             </ul>
         </header>
         <div data-role="main">
-            <div class="animal-profile-top"></div>
-            <div class="animal-profile-nav">
+            <div class="sunset-profile-top">
+                <div class="floater bottom right">
+                    <a href="#" class="js-sunset-delete"><img class="icon" src="images/trash.svg" style="font-size:1.5em" /></a>
+                </div>
+            </div>
+            <div class="sunset-profile-nav">
                 <div class="nav-link active">Map</div>
                 <div class="nav-link">Description</div>
             </div>
-            <div class="animal-profile-bottom">
-                <div class="animal-profile-section section-map active">
+            <div class="sunset-profile-bottom">
+                <div class="sunset-profile-section section-map active">
                     <div class="map"></div>
+
+                    <div class="floater bottom right">
+                        <a href="#choose-location-page" class="btn-circle js-choose-animal-for-location">&plus;</a>
+                    </div>
                 </div>
-                <div class="animal-profile-section section-description"></div>
+                <div class="sunset-profile-section section-description"></div>
             </div>
         </div>
     </section>

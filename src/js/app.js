@@ -1,5 +1,5 @@
-//import { checkUserEditForm } from "./forms.js";
-import { AnimalEditPage, AnimalProfilePage, ChooseLocationPage, ListPage, RecentPage, UserEditPage, UserProfilePage } from "./routes.js";
+import { checkSunsetAddForm, checkSunsetEditForm, checkUserEditForm, checkPasswordEditForm } from "./forms.js";
+import { SunsetProfilePage, ChooseLocationPage, ListPage, RecentPage, UserEditPage, UserProfilePage, SunsetAddPage, SunsetEditPage } from "./routes.js";
 import { checkSigninForm, checkUserId } from "./signin.js";
 
 // Document Ready
@@ -19,8 +19,9 @@ $(() => {
             case "user-profile-page": UserProfilePage(); break;
             case "user-edit-page": UserEditPage(); break;
 
-            case "animal-profile-page": AnimalProfilePage(); break;
-            case "animal-edit-page": AnimalEditPage(); break;
+            case "sunset-profile-page": SunsetProfilePage(); break;
+            case "sunset-add-page": SunsetAddPage(); break;
+            case "sunset-edit-page": SunsetEditPage(); break;
 
             case "choose-location-page": ChooseLocationPage(); break;
         }
@@ -36,8 +37,14 @@ $(() => {
         e.preventDefault();
         checkUserEditForm();
     })
-
-
+    .on("submit", "#sunset-edit-form", function(e) {
+        e.preventDefault();
+        checkSunsetEditForm();
+    })
+    .on("submit", "#user-edit-form", function(e) {
+        e.preventDefault();
+        checkUserEditForm();
+    })
 
 
 
@@ -48,10 +55,10 @@ $(() => {
     })
 
 
-    .on("click", ".animal-jump", function(e) {
+    .on("click", ".sunset-jump", function(e) {
         let id = $(this).data("id");
 
-        sessionStorage.animalId = id;
+        sessionStorage.sunsetId = id;
     })
     .on("click", ".location-jump", function(e) {
         let id = $(this).data("id");
@@ -63,6 +70,16 @@ $(() => {
     .on("click", ".js-submit-user-edit-form", function(e) {
         checkUserEditForm();
     })
+    .on("click", ".js-submit-sunset-spot-add-form", function(e) {
+        checkSunsetAddForm();
+    })
+    .on("click", ".js-submit-sunset-spot-edit-form", function(e) {
+        checkSunsetEditForm();
+    })
+    .on("click", ".js-submit-password-edit-form", function(e) {
+        checkPasswordEditForm();
+    })
+
 
 
     .on("click", ".nav-link", function(e) {

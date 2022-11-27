@@ -168,7 +168,8 @@ a {
     text-decoration: none;
 }
 
-
+.padded { padding:1em; }
+.full { height:100%; }
 
 
 #signin-form,
@@ -320,8 +321,8 @@ a {
 
 
 
-/* ANIMAL LIST */
-.animallist {
+/* SUNSET LIST */
+.sunsetlist {
     height: 100%;
     position:relative;
     overflow:auto;
@@ -357,7 +358,7 @@ a {
 
 
 
-.animallist-item {
+.sunsetlist-item {
     display: flex;
     box-shadow: 0 3px 10px rgb(0 0 0 / 15%);
     margin: 1em 0;
@@ -366,34 +367,34 @@ a {
     font-weight:normal;
     color:inherit;
 }
-.animallist-image img {
+.sunsetlist-image img {
     width: 100px;
     height: 100px;
     object-fit: cover;
     object-position: center;
     vertical-align: text-bottom;
 }
-.animallist-body {
+.sunsetlist-body {
     padding: 1em;
 }
-.animallist-name {
+.sunsetlist-name {
     font-size:1.3em;
 }
 
 
 
 
-#animal-profile-page [data-role="main"] {
+#sunset-profile-page [data-role="main"] {
     display:flex;
     flex-direction:column;
 }
-.animal-profile-top {
+.sunset-profile-top {
     height:30vh;
     flex:none;
     background-position:center;
     background-size:cover;
 }
-.animal-profile-nav {
+.sunset-profile-nav {
     flex:none;
     line-height:var(--header-height);
     display:flex;
@@ -405,11 +406,14 @@ a {
 .nav-link.active {
     background-color:var(--color-main-light);
 }
-.animal-profile-bottom {
+.sunset-profile-top {
+    position:relative;
+}
+.sunset-profile-bottom {
     position:relative;
     flex: 1 1 100%;
 }
-.animal-profile-section {
+.sunset-profile-section {
     position:absolute;
     top:0;
     left:0;
@@ -419,7 +423,7 @@ a {
     pointer-events: none;
     transition:all 0.3s;
 }
-.animal-profile-section.active {
+.sunset-profile-section.active {
     opacity:1;
     pointer-events: initial;
 }
@@ -438,4 +442,37 @@ a {
 }
 .sunset-map-body h1 {
     margin:0;
+}
+
+.icon {
+    font-size: 1em;
+    width: 1em;
+    height: 1em;
+}
+
+.user-profile-image img {
+    width:100%;
+    object-fit: cover;
+    aspect-ratio: 1/ 1;
+    border-radius: 50%;
+    padding:4em;
+}
+.user-profile-body {
+    padding:2em;
+}
+.user-profile-name {
+    font-weight:1.5em;
+}
+
+.settings {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.settings li {
+    padding: 0.5em 1em;
+
+}
+.settings li~li {
+    border-top: 1px solid var(--color-neutral-lighter);
 }

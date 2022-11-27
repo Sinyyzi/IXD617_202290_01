@@ -12,6 +12,11 @@ const landscapetype = () => {
     return chance.pickone(types);
 }
 
+const sunsetname = () => {
+    let names = ['Lands End','Venice Beach','Santa Monica','Mori Point','Twin Peak','Waikiki Beach','Salesforce Towel','Napa Valley'];
+    return chance.pickone(names);
+}
+
 /* Remain same */
 const getUsers = () => (new Array(10)).fill(0).map((o,i)=>{
     o = {};
@@ -25,30 +30,30 @@ const getUsers = () => (new Array(10)).fill(0).map((o,i)=>{
     return o;
 });
 
-const getSunsets = () => (new Array(250)).fill(0).map((o,i)=>{
+const getSunsetSpots = () => (new Array(30)).fill(0).map((o,i)=>{
     o = {};
     o.id = i + 1;
     o.user_id = chance.natural({min:1, max:10});
-    o.location_id = chance.natural({min:1, max:50})
-    o.name = 'My Sunset' + o.id ;
-    o.weather = weathertype();
-    o.description = chance.sentence();
+    o.name = sunsetname();
     o.img = `https://via.placeholder.com/${num()}x${num()}/${hex()}/fff/?text=${o.name}`;
     o.date_create = getdate(Date.parse('2020/01/01'),Date.now());
     o.landscape = landscapetype();
-    o.sunset_time = getdate(Date.parse('2020/01/01'),Date.now());
+    o.description = chance.sentence();
     return o;
 });
 
-const getLocations = () => (new Array(50)).fill(0).map((o,i)=>{
+const getSunsetTracks = () => (new Array(100)).fill(0).map((o,i)=>{
     o = {};
     o.id = i + 1;
+    o.sunset_id = chance.natural({min:1, max:30});
     o.lat = chance.latitude({min:37.67, max:37.80});
     o.lng = chance.longitude({min:-122.50, max:-122.37});
     o.description = chance.sentence();
     o.photo = `https://via.placeholder.com/${num()}x${num()}/${hex()}/fff/?text=PHOTO`;
     o.icon = `https://via.placeholder.com/${num()}x${num()}/${hex()}/fff/?text=ICON`;
     o.date_create = getdate(Date.parse('2020/01/01'),Date.now());
+    o.sunset_time = getdate(Date.parse('2020/01/01'),Date.now());
+    o.weather = weathertype();
     return o;
 });
 
@@ -75,11 +80,11 @@ ${data.map((o)=>`(${JSON.stringify(Object.values(o)).slice(1,-1)})`).join(',\n')
 
 window.addEventListener('DOMContentLoaded',()=>{
     document.querySelector('.users-json').addEventListener('click',()=>{ exportAsJSON('Users',getUsers()); });
-    document.querySelector('.sunsets-json').addEventListener('click',()=>{ exportAsJSON('Sunsets',getSunsets()); });
-    document.querySelector('.locations-json').addEventListener('click',()=>{ exportAsJSON('Locations',getLocations()); });
+    document.querySelector('.sunset-spots-json').addEventListener('click',()=>{ exportAsJSON('SunsetSpots',getSunsetSpots()); });
+    document.querySelector('.sunset-tracks-json').addEventListener('click',()=>{ exportAsJSON('SunsetTracks',getSunsetTracks()); });
     document.querySelector('.users-sql').addEventListener('click',()=>{ exportAsSQL('track_202290_users',getUsers()); });
-    document.querySelector('.sunsets-sql').addEventListener('click',()=>{ exportAsSQL('track_202290_sunsets',getSunsets()); });
-    document.querySelector('.locations-sql').addEventListener('click',()=>{ exportAsSQL('track_202290_locations',getLocations()); });
+    document.querySelector('.sunset-spots-sql').addEventListener('click',()=>{ exportAsSQL('track_202290_sunset_spots',getSunsetSpots()); });
+    document.querySelector('.sunset-tracks-sql').addEventListener('click',()=>{ exportAsSQL('track_202290_sunset_tracks',getSunsetTracks()); });
 });
 
 window.addEventListener('DOMContentLoaded',()=>{

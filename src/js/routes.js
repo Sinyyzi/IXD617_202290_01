@@ -1,11 +1,11 @@
 import { query } from "./functions.js"
 import { makeMap, makeMarkers } from "./maps.js";
-import { makeAnimalMapDescription } from "./parts.js";
+import { makeSunsetMapDescription, makeSunsetList, makeSunsetProfileDescription, makeEditSunsetSpotForm, makeUserProfilePage, makeEditUserForm} from "./parts.js";
 
 
 export const RecentPage = async() => {
     let {result:sunset_locations} = await query({
-        type:"sunset_location_by_user_id",
+        type:"recent_sunset_locations",
         params:[sessionStorage.userId]
     });
     console.log(sunset_locations);
@@ -33,27 +33,27 @@ export const RecentPage = async() => {
             // Open Google InfoWindow
             let {map,infoWindow} = map_el.data();
             infoWindow.open(map, m);
-            infoWindow.setContent(makeAnimalMapDescription(sunset));
+            infoWindow.setContent(makeSunsetMapDescription(sunset));
 
             // Top modal
             // $("#map-recent-modal")
             //     .addClass("active")
             //     .find(".modal-body")
-            //     .html(makeAnimalMapDescription(sunset))
+            //     .html(makeSunsetMapDescription(sunset))
         })
     });
 }
 
 export const ListPage = async() => {
 
-    let {result:animals} = await query({
-        type:"animals_by_user_id",
+    let {result:sunset} = await query({
+        type:"sunset_spots_by_user_id",
         params:[sessionStorage.userId]
     });
 
-    console.log(animals)
+    console.log(sunset)
 
-    //$("#list-page .animallist").html(makeAnimalList(animals))
+    $("#list-page .sunsetlist").html(makeSunsetList(sunset))
 }
 
 export const UserProfilePage = async() => {
@@ -63,38 +63,8 @@ export const UserProfilePage = async() => {
     });
     let [user] = users;
 
-    console.log(user)
-
-    //$("#user-profile-page .body").html(makeUserProfilePage(user))
+    $("#user-profile-page .body").html(makeUserProfilePage(user))
 }
-
-export const AnimalProfilePage = async() => {
-    let {result:animals} = await query({
-        type:"animal_by_id",
-        params:[sessionStorage.animalId]
-    });
-    let [animal] = animals;
-
-    $(".animal-profile-top").css({"background-image":`url(${animal.img})`})
-    $("#animal-profile-page h1").html(animal.name);
-    //$("#animal-profile-page .section-description").html(makeAnimalProfileDescription(animal));
-
-    let {result:locations} = await query({
-        type:"locations_by_animal_id",
-        params:[sessionStorage.animalId]
-    });
-    console.log(locations)
-
-    let map_el = await makeMap("#animal-profile-page .map");
-    makeMarkers(map_el,locations);
-}
-
-export const ChooseLocationPage = async() => {
-    let map_el = await makeMap("#choose-location-page .map");
-    makeMarkers(map_el,[]);
-}
-
-
 
 export const UserEditPage = async() => {
     let {result:users} = await query({
@@ -103,19 +73,59 @@ export const UserEditPage = async() => {
     });
     let [user] = users;
 
-    //$("#user-edit-page .body").html(makeEditUserForm(user));
+    $("#user-edit-page .body").html(makeEditUserForm(user));
+}
+
+export const SunsetProfilePage = async() => {
+    let {result:sunsets} = await query({
+        type:"sunset_by_id",
+        params:[sessionStorage.sunsetId]
+    });
+    let [sunset] = sunsets;
+
+    let encodedUrl = sunset.img.replace(/ /g,"%20");
+    console.log(encodedUrl);
+    $(".sunset-profile-top").css({"background-image":`url(${encodedUrl})`});
+    $("#sunset-profile-page h1").html(sunset.name);
+    $("#sunset-profile-page .section-description").html(makeSunsetProfileDescription(sunset));
+
+    let {result:spots} = await query({
+        type:"sunset_tracks_by_spot_id",
+        params:[sessionStorage.sunsetId]
+    });
+    console.log(spots);
+
+    let map_el = await makeMap("#sunset-profile-page .map");
+    makeMarkers(map_el,spots);
 }
 
 
-export const AnimalEditPage = async() => {
-    let {result:animals} = await query({
-        type:"animal_by_id",
-        params:[sessionStorage.animalId]
-    });
-    let [animal] = animals;
+export const ChooseLocationPage = async() => {
+    let map_el = await makeMap("#choose-location-page .map");
+    makeMarkers(map_el,[]);
+}
 
-    /*$("#animal-edit-page .body").html(makeEditAnimalForm({
-        animal,
-        namespace:'animal-edit'
-    }));*/
+
+export const SunsetAddPage = async() => {
+    $("#sunset-add-page .body").html(makeEditSunsetSpotForm({
+        sunset:{
+            name:'',
+            landscape:'',
+            description:'',
+        },
+        namespace:'sunset-add'
+    }));
+}
+
+export const SunsetEditPage = async() => {
+    let {result:sunsets} = await query({
+        type:"sunset_by_id",
+        params:[sessionStorage.sunsetId]
+    });
+    let [sunset] = sunsets;
+
+    $("#sunset-edit-page .body").html(makeEditSunsetSpotForm({
+        sunset,
+        namespace:'sunset-edit'
+    }));
 }
