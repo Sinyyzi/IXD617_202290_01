@@ -1,5 +1,5 @@
-import { checkSunsetAddForm, checkSunsetEditForm, checkUserEditForm, checkPasswordEditForm } from "./forms.js";
-import { SunsetProfilePage, ChooseLocationPage, ListPage, RecentPage, UserEditPage, UserProfilePage, SunsetAddPage, SunsetEditPage } from "./routes.js";
+import { checkSunsetAddForm, checkSunsetEditForm, checkUserEditForm, checkPasswordEditForm, checkSunsetTrackAddForm, checkSignupForm, checkSunsetDeleteForm } from "./forms.js";
+import { SunsetProfilePage, ChooseLocationPage, ListPage, RecentPage, UserEditPage, UserProfilePage, SunsetAddPage, SunsetEditPage, SunsetTrackAddPage } from "./routes.js";
 import { checkSigninForm, checkUserId } from "./signin.js";
 
 // Document Ready
@@ -24,6 +24,8 @@ $(() => {
             case "sunset-edit-page": SunsetEditPage(); break;
 
             case "choose-location-page": ChooseLocationPage(); break;
+
+            case "add-sunset-track-page": SunsetTrackAddPage(); break;
         }
     })
 
@@ -33,6 +35,10 @@ $(() => {
         e.preventDefault();
         checkSigninForm();
     })
+    .on("submit", "#signup-form", function(e) {
+        e.preventDefault();
+        checkSignupForm();
+    })
     .on("submit", "#user-edit-form", function(e) {
         e.preventDefault();
         checkUserEditForm();
@@ -40,10 +46,6 @@ $(() => {
     .on("submit", "#sunset-edit-form", function(e) {
         e.preventDefault();
         checkSunsetEditForm();
-    })
-    .on("submit", "#user-edit-form", function(e) {
-        e.preventDefault();
-        checkUserEditForm();
     })
 
 
@@ -65,6 +67,13 @@ $(() => {
 
         sessionStorage.locationId = id;
     })
+    .on("click", ".js-sunset-delete", function(e) {
+        checkSunsetDeleteForm();
+    })
+    .on("click", ".js-choose-sunset-spot-for-track", function(e) {
+        $("#location-sunset-id").val(sessionStorage.sunsetId);
+        $("#location-back").val(-2);
+    })
 
 
     .on("click", ".js-submit-user-edit-form", function(e) {
@@ -72,6 +81,9 @@ $(() => {
     })
     .on("click", ".js-submit-sunset-spot-add-form", function(e) {
         checkSunsetAddForm();
+    })
+    .on("click", ".js-submit-sunset-track-add-form", function(e) {
+        checkSunsetTrackAddForm();
     })
     .on("click", ".js-submit-sunset-spot-edit-form", function(e) {
         checkSunsetEditForm();

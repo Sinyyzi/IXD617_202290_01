@@ -92,3 +92,77 @@ export const checkPasswordEditForm = () => {
         }
     })
 }
+
+export const checkSunsetTrackAddForm = () => {
+    let sunset_time = $("#sunset-track-add-sunset_time").val();
+    let weather = $("#sunset-track-add-weather").val();
+    let description = $("#sunset-track-add-description").val();
+    let lat = $("#location-lat").val();
+    let lng = $("#location-lng").val();
+
+    query({
+        type: 'insert_sunset_track',
+        params: [
+            sessionStorage.sunsetId,
+            lat,
+            lng,
+            description,
+            weather,
+            sunset_time
+        ]
+    }).then((data)=>{
+        if (data.error) {
+            throw(data.error);
+        } else {
+            window.history.go(-1);
+        }
+    })
+}
+
+export const checkSignupForm = () => {
+    let name = $("#signup-name").val();
+    let username = $("#signup-username").val();
+    let email = $("#signup-email").val();
+    let password = $("#signup-password").val();
+    let confirm = $("#signup-confirm").val();
+    let imageUrl = `https://via.placeholder.com/400/?text=${name}`;
+    
+    if (password !== confirm) {
+        // tell user to try again
+        throw("password failed, please try again");
+        return;
+    }
+
+    query({
+        type: 'insert_user',
+        params: [
+            name,
+            username,
+            email,
+            password,
+            imageUrl
+        ]
+    }).then((data)=>{
+        if (data.error) {
+            throw(data.error);
+            // We should show how they failed to them
+        } else {
+            sessionStorage.userId = data.id;
+            $.mobile.navigate("#list-page");
+        }
+    })
+}
+
+export const checkSunsetDeleteForm = () => {
+    console.log(sessionStorage.sunsetId);
+    query({
+        type:"delete_sunset",
+        params:[sessionStorage.sunsetId]
+    }).then((data)=>{
+        if (data.error) {
+            throw(data.error);
+        } else {
+            window.history.back();
+        }
+    })
+}

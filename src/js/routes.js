@@ -1,6 +1,6 @@
 import { query } from "./functions.js"
 import { makeMap, makeMarkers } from "./maps.js";
-import { makeSunsetMapDescription, makeSunsetList, makeSunsetProfileDescription, makeEditSunsetSpotForm, makeUserProfilePage, makeEditUserForm} from "./parts.js";
+import { makeSunsetMapDescription, makeSunsetList, makeSunsetProfileDescription, makeEditSunsetSpotForm, makeUserProfilePage, makeEditUserForm, makeAddSunsetTrackForm} from "./parts.js";
 
 
 export const RecentPage = async() => {
@@ -84,7 +84,6 @@ export const SunsetProfilePage = async() => {
     let [sunset] = sunsets;
 
     let encodedUrl = sunset.img.replace(/ /g,"%20");
-    console.log(encodedUrl);
     $(".sunset-profile-top").css({"background-image":`url(${encodedUrl})`});
     $("#sunset-profile-page h1").html(sunset.name);
     $("#sunset-profile-page .section-description").html(makeSunsetProfileDescription(sunset));
@@ -103,6 +102,11 @@ export const SunsetProfilePage = async() => {
 export const ChooseLocationPage = async() => {
     let map_el = await makeMap("#choose-location-page .map");
     makeMarkers(map_el,[]);
+    map_el.data("map").addListener("click",function(e){
+        $("#location-lat").val(e.latLng.lat());
+        $("#location-lng").val(e.latLng.lng());
+        makeMarkers(map_el,[e.latLng]);
+    })
 }
 
 
@@ -127,5 +131,11 @@ export const SunsetEditPage = async() => {
     $("#sunset-edit-page .body").html(makeEditSunsetSpotForm({
         sunset,
         namespace:'sunset-edit'
+    }));
+}
+
+export const SunsetTrackAddPage = async() => {
+    $("#add-sunset-track-page .body").html(makeAddSunsetTrackForm({
+        namespace:'sunset-track-add'
     }));
 }

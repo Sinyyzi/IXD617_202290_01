@@ -96,3 +96,31 @@ export const makeEditUserForm = ({name,username,email}) => {
         <input class="form-input" type="text" id="user-edit-email" data-role="none" placeholder="Type your Email" value="${email}">
     </div>`
 }
+
+export const makeAddSunsetTrackForm = ({namespace}) => {
+    return `
+    ${FormControlInput({
+        namespace,
+        name: "weather",
+        displayname: "Weather",
+        type: "text",
+        placeholder: "Type a Weather",
+        value: ''
+    })}
+    ${FormControlInput({
+        namespace,
+        name: "sunset_time",
+        displayname: "Sunset Time",
+        type: "datetime-local",
+        placeholder: "Type a Sunset Time",
+        value: ''
+    })}
+    ${FormControlTextarea({
+        namespace,
+        name: "description",
+        displayname: "Description",
+        placeholder: "Type a Description",
+        value: ''
+    })}
+    `;
+}

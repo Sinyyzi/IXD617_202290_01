@@ -113,6 +113,69 @@ function makeStatement($data) {
 
             if (isset($result['error'])) return $result;
             return ["result"=>"Success"];
+
+        case "insert_sunset_track":
+            $result = makeQuery($conn, "INSERT INTO
+            `track_202290_sunset_tracks`
+            (
+                `sunset_id`,
+                `lat`,
+                `lng`,
+                `description`,
+                `weather`,
+                `sunset_time`,
+                `photo`,
+                `icon`,
+                `date_create`
+            )
+            VALUES
+            (
+                ?,
+                ?,
+                ?,
+                ?,
+                ?,
+                ?,
+                'https://via.placeholder.com/400/?text=PHOTO',
+                'https://via.placeholder.com/400/?text=ICON',
+                NOW()
+            )
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
+        case "insert_user":
+            $result = makeQuery($conn, "SELECT `id`
+            FROM `track_202290_users`
+            WHERE `username`=? OR `email`=?
+            ", [$params[0],$params[1]]);
+            if (count($result['result']) > 0)
+                return ["error"=>"Username or Email already exists"];
+
+            $result = makeQuery($conn, "INSERT INTO
+            `track_202290_users`
+            (
+                `name`,
+                `username`,
+                `email`,
+                `password`,
+                `img`,
+                `date_create`
+            )
+            VALUES
+            (
+                ?,
+                ?,
+                ?,
+                md5(?),
+                ?,
+                NOW()
+            )
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["id" => $conn->lastInsertId()];
         
         /* UPDATE */
         case "update_sunset_spot":
@@ -140,7 +203,7 @@ function makeStatement($data) {
 
             if (isset($result['error'])) return $result;
             return ["result"=>"Success"];
-            
+
         case "update_password":
             $result = makeQuery($conn, "UPDATE
             `track_202290_users`
@@ -151,6 +214,17 @@ function makeStatement($data) {
 
             if (isset($result['error'])) return $result;
             return ["result"=>"Success"];
+
+        /* DELETE */
+        case "delete_sunset":
+            $result = makeQuery($conn, "DELETE FROM
+            `track_202290_sunset_spots`
+            WHERE `id` = ?
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
         default:
             return ["error"=>"No Matched Type"];
     }
