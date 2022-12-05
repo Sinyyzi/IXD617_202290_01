@@ -11,6 +11,19 @@ function makeConn() {
     }
 }
 
+function makeUpload($file, $folder) {
+    $filename = microtime(true) . "_" . $_FILES[$file]['name'];
+
+    if (@move_uploaded_file(
+        $_FILES[$file]['tmp_name'],
+        $folder.$filename
+    )) return ["result"=>$filename];
+    else return [
+        "error"=>"File Upload Failed",
+        "filename"=>$filename
+    ];
+}
+
 
 function fetchAll($result) {
     $a = [];
@@ -112,7 +125,7 @@ function makeStatement($data) {
             ", $params, false);
 
             if (isset($result['error'])) return $result;
-            return ["result"=>"Success"];
+            return ["id" => $conn->lastInsertId()];
 
         case "insert_sunset_track":
             $result = makeQuery($conn, "INSERT INTO
@@ -136,7 +149,7 @@ function makeStatement($data) {
                 ?,
                 ?,
                 ?,
-                'https://via.placeholder.com/400/?text=PHOTO',
+                ?,
                 'https://via.placeholder.com/400/?text=ICON',
                 NOW()
             )
@@ -184,7 +197,8 @@ function makeStatement($data) {
             SET
                 `name` = ?,
                 `landscape` = ?,
-                `description` = ?
+                `description` = ?,
+                `img` = ?
             WHERE `id` = ?
             ", $params, false);
 
@@ -225,9 +239,25 @@ function makeStatement($data) {
             if (isset($result['error'])) return $result;
             return ["result"=>"Success"];
 
+        /* UPLOAD */
+        case "update_user_photo":
+            $result = makeQuery($conn, "UPDATE
+            `track_202290_users`
+            SET `img` = ?
+            WHERE `id` = ?
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
         default:
             return ["error"=>"No Matched Type"];
     }
+}
+
+if (!empty($_FILES)) {
+    $result = makeUpload("image","../uploads/");
+    die(json_encode($result));
 }
 
 $data = json_decode(file_get_Contents("php://input"));

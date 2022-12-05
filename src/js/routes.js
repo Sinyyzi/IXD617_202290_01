@@ -119,6 +119,9 @@ export const SunsetAddPage = async() => {
         },
         namespace:'sunset-add'
     }));
+    $("#sunset-edit-photo-page .body").css({
+        "background-image": `url('images/addphoto.png')`
+    });
 }
 
 export const SunsetEditPage = async() => {
@@ -132,10 +135,28 @@ export const SunsetEditPage = async() => {
         sunset,
         namespace:'sunset-edit'
     }));
+    $("#sunset-edit-photo-page .body").css({
+        "background-image": `url('${sunset.img}')`
+    });
 }
 
 export const SunsetTrackAddPage = async() => {
     $("#add-sunset-track-page .body").html(makeAddSunsetTrackForm({
         namespace:'sunset-track-add'
     }));
+    $("#sunset-track-edit-photo-page .body").css({
+        "background-image": `url('images/addphoto.png')`
+    });
+}
+
+export const UserEditPhotoPage = async() => {
+    let {result:users} = await query({
+        type:"user_by_id",
+        params:[sessionStorage.userId]
+    });
+    let [user] = users;
+
+    $("#user-edit-photo-page .body").css({
+        "background-image": `url('${user.img}')`
+    });
 }

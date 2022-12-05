@@ -1,6 +1,7 @@
-import { checkSunsetAddForm, checkSunsetEditForm, checkUserEditForm, checkPasswordEditForm, checkSunsetTrackAddForm, checkSignupForm, checkSunsetDeleteForm } from "./forms.js";
-import { SunsetProfilePage, ChooseLocationPage, ListPage, RecentPage, UserEditPage, UserProfilePage, SunsetAddPage, SunsetEditPage, SunsetTrackAddPage } from "./routes.js";
+import { checkSunsetAddForm, checkSunsetEditForm, checkUserEditForm, checkPasswordEditForm, checkSunsetTrackAddForm, checkSignupForm, checkSunsetDeleteForm, checkUserEditPhotoForm } from "./forms.js";
+import { SunsetProfilePage, ChooseLocationPage, ListPage, RecentPage, UserEditPage, UserProfilePage, SunsetAddPage, SunsetEditPage, SunsetTrackAddPage, UserEditPhotoPage } from "./routes.js";
 import { checkSigninForm, checkUserId } from "./signin.js";
+import { checkUpload } from "./functions.js";
 
 // Document Ready
 $(() => {
@@ -18,6 +19,7 @@ $(() => {
 
             case "user-profile-page": UserProfilePage(); break;
             case "user-edit-page": UserEditPage(); break;
+            case "user-edit-photo-page": UserEditPhotoPage(); break;
 
             case "sunset-profile-page": SunsetProfilePage(); break;
             case "sunset-add-page": SunsetAddPage(); break;
@@ -91,8 +93,20 @@ $(() => {
     .on("click", ".js-submit-password-edit-form", function(e) {
         checkPasswordEditForm();
     })
+    .on("click", ".js-submit-user-edit-photo-form", function(e) {
+        checkUserEditPhotoForm();
+    })
 
-
+    .on("change", ".imagepicker input", function(e) {
+        checkUpload(this.files[0])
+        .then((d) => {
+            let filename = `uploads/${d.result}`;
+            $(this).parent().prev().val(filename);
+            $(this).parent().css({
+                "background-image": `url('${filename}')`
+            })
+        })
+    })
 
     .on("click", ".nav-link", function(e) {
         if (e.cancelable) e.preventDefault();

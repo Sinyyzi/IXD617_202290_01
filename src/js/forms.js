@@ -5,8 +5,11 @@ export const checkSunsetAddForm = () => {
     let name = $("#sunset-add-name").val();
     let landscape = $("#sunset-add-landscape").val();
     let description = $("#sunset-add-description").val();
-    let imageUrl = `https://via.placeholder.com/400/?text=${name}`;
-    
+    let imageUrl = $("#sunset-add-photo-image").val();
+    if (imageUrl == null || imageUrl == '') {
+        imageUrl = `https://via.placeholder.com/400/?text=${name}`;
+    }
+
     query({
         type: 'insert_sunset_spot',
         params: [
@@ -20,7 +23,8 @@ export const checkSunsetAddForm = () => {
         if (data.error) {
             throw(data.error);
         } else {
-            window.history.back();
+            sessionStorage.sunsetId = data.id;
+            $.mobile.navigate("#sunset-profile-page");
         }
     })
 }
@@ -29,6 +33,7 @@ export const checkSunsetEditForm = () => {
     let name = $("#sunset-edit-name").val();
     let landscape = $("#sunset-edit-landscape").val();
     let description = $("#sunset-edit-description").val();
+    let img = $("#sunset-edit-photo-image").val();
     
     query({
         type: 'update_sunset_spot',
@@ -36,6 +41,7 @@ export const checkSunsetEditForm = () => {
             name,
             landscape,
             description,
+            img,
             sessionStorage.sunsetId
         ]
     }).then((data)=>{
@@ -99,6 +105,7 @@ export const checkSunsetTrackAddForm = () => {
     let description = $("#sunset-track-add-description").val();
     let lat = $("#location-lat").val();
     let lng = $("#location-lng").val();
+    let img = $("#sunset-track-add-photo-image").val();
 
     query({
         type: 'insert_sunset_track',
@@ -108,7 +115,8 @@ export const checkSunsetTrackAddForm = () => {
             lng,
             description,
             weather,
-            sunset_time
+            sunset_time,
+            img
         ]
     }).then((data)=>{
         if (data.error) {
@@ -162,7 +170,25 @@ export const checkSunsetDeleteForm = () => {
         if (data.error) {
             throw(data.error);
         } else {
-            window.history.back();
+            $.mobile.navigate("#list-page");
+        }
+    })
+}
+
+export const checkUserEditPhotoForm = () => {
+    let photo = $("#user-edit-photo-image").val();
+
+    query({
+        type: 'update_user_photo',
+        params: [
+            photo,
+            sessionStorage.userId
+        ]
+    }).then((data)=>{
+        if (data.error) {
+            throw(data.error);
+        } else {
+            window.history.go(-1);
         }
     })
 }

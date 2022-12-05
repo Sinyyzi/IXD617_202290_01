@@ -42,6 +42,26 @@ const FormControlTextarea = ({namespace,name,displayname,placeholder,value}) => 
     </div>`
 }
 
+const FormSunsetCoverPhoto = ({namespace}) => {
+    return `<div class="form-control" id="sunset-edit-photo-page" data-role="main">
+        <label class="form-label" for="sunset-edit-photo-form">Cover Photo</label>
+        <input type="hidden" id="${namespace}-photo-image">
+        <label class="form-input body imagepicker replace" id="sunset-edit-photo-form">
+            <input type="file" id="sunset-edit-photo-input" data-role="none" class="hidden">
+        </label>
+    </div>`
+}
+
+const FormSunsetTrackPhoto = ({namespace}) => {
+    return `<div class="form-control" id="sunset-track-edit-photo-page" data-role="main">
+        <label class="form-label" for="sunset-track-edit-photo-form">Sunset photo</label>
+        <input type="hidden" id="${namespace}-photo-image">
+        <label class="form-input body imagepicker replace" id="sunset-track-edit-photo-form">
+            <input type="file" id="sunset-track-edit-photo-input" data-role="none" class="hidden">
+        </label>
+    </div>`
+}
+
 export const makeEditSunsetSpotForm = ({sunset,namespace}) => {
     return `
     ${FormControlInput({
@@ -67,12 +87,13 @@ export const makeEditSunsetSpotForm = ({sunset,namespace}) => {
         placeholder: "Type a Description",
         value: sunset.description
     })}
+    ${FormSunsetCoverPhoto({namespace})}
     `;
 }
 
 export const makeUserProfilePage = ({name,email,username,img})=>`
 <div>
-    <div class="user-profile-image"><img src="${img}"></div>
+    <div class="user-profile-image"><a href="#user-edit-photo-page"><img src="${img}"></a></div>
     <div class="user-profile-body">
         <div class="user-profile-name">${name}</div>
         <div class="user-profile-username">@${username}</div>
@@ -122,5 +143,6 @@ export const makeAddSunsetTrackForm = ({namespace}) => {
         placeholder: "Type a Description",
         value: ''
     })}
+    ${FormSunsetTrackPhoto({namespace})}
     `;
 }

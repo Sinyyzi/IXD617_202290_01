@@ -97,7 +97,7 @@
             <div class="map"></div>
 
             <div class="floater bottom right">
-                <a href="#choose-animal-page" class="btn-circle">&plus;</a>
+                <a href="#sunset-add-page" class="btn-circle">&plus;</a>
             </div>
 
             <div id="map-recent-modal" class="modal">
@@ -169,11 +169,16 @@
             <ul>
                 <li><a href="#" data-rel="back">Back</a></li>
                 <li class="flex-stretch"></li>
-                <li><a href="#" class="js-submit-sunset-spot-add-form">Submit</a></li>
             </ul>
         </header>
         <form data-role="main" data-ajax="false" id="sunset-add-form" class="padded display-flex flex-column full overscroll">
             <div class="body"></div>
+
+            <div class="flex-stretch"></div>
+            
+            <div class="form-control">
+                <a href="#" class="js-submit-sunset-spot-add-form"><input class="form-button" type="submit" data-role="none" value="Next"></a>
+            </div>
         </form>
     </section>
 
@@ -184,7 +189,7 @@
             <ul>
                 <li><a href="#" data-rel="back">Back</a></li>
                 <li class="flex-stretch"></li>
-                <li><a href="#" class="js-submit-sunset-spot-edit-form">Submit</a></li>
+                <li><a href="#" class="js-sunset-delete">Delete</a></li>
             </ul>
         </header>
         <form data-role="main" data-ajax="false" id="sunset-edit-form" class="padded display-flex flex-column full overscroll">
@@ -192,7 +197,7 @@
             <div class="flex-stretch"></div>
             
             <div class="form-control">
-                <input class="form-button" type="submit" data-role="none" value="Submit">
+                <a href="#" class="js-submit-sunset-spot-edit-form"><input class="form-button" type="submit" data-role="none" value="Submit"></a>
             </div>
         </form>
     </section>
@@ -228,25 +233,6 @@
             <div class="body"></div>
         </form>
     </section>
-
-
-    <!-- CHOOSE SUNSET PAGE -->
-    <section data-role="page" id="choose-sunset-page">
-        <header data-role="header">
-            <h1>Choose sunset</h1>
-            <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
-                <li class="flex-stretch"></li>
-                <li><a href="#choose-location-page">Next</a></li>
-            </ul>
-        </header>
-        <div data-role="main">
-            <input type="hidden" id="location-sunset-id">
-            <input type="hidden" id="location-back" value="-2">
-            form for choose sunset
-        </div>
-    </section>
-
 
 
 
@@ -338,7 +324,23 @@
         </form>
     </section>
 
-
+    <!-- USER EDIT PHOTO PAGE -->
+    <section data-role="page" id="user-edit-photo-page">
+        <header data-role="header">
+            <h1>Edit User Photo</h1>
+            <ul>
+                <li><a href="#" data-rel="back">Back</a></li>
+                <li class="flex-stretch"></li>
+                <li><a href="#" class="js-submit-user-edit-photo-form">Submit</a></li>
+            </ul>
+        </header>
+        <form data-role="main" data-ajax="false" id="user-edit-photo-form" class="padded display-flex flex-column full overscroll">
+            <input type="hidden" id="user-edit-photo-image">
+            <label class="body imagepicker replace">
+                <input type="file" id="user-edit-photo-input" data-role="none" class="hidden">
+            </label>
+        </form>
+    </section>
 
 
 
@@ -347,17 +349,13 @@
         <header data-role="header">
             <h1></h1>
             <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
+                <li><a href="#list-page">Back</a></li>
                 <li class="flex-stretch"></li>
                 <li><a href="#sunset-edit-page">Edit</a></li>
             </ul>
         </header>
         <div data-role="main">
-            <div class="sunset-profile-top">
-                <div class="floater bottom right">
-                    <a href="#list-page" class="js-sunset-delete"><img class="icon" src="images/trash.svg" style="font-size:1.5em" /></a>
-                </div>
-            </div>
+            <div class="sunset-profile-top"></div>
             <div class="sunset-profile-nav">
                 <div class="nav-link active">Map</div>
                 <div class="nav-link">Description</div>
