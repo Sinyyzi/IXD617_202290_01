@@ -161,3 +161,17 @@ export const makeAddSunsetTrackForm = ({namespace}) => {
     ${FormSunsetTrackPhoto({namespace})}
     `;
 }
+
+const filterList = (sunsets,landscape) => {
+    let arr = [...(new Set(sunsets.map(o=>o[landscape])))];
+    return templater(o=>o?`<span data-filter="${landscape}" data-value="${o}">${o}</span>`:'')(arr);
+}
+
+
+export const makeFilterList = (sunsets) => {
+    return `
+        <span data-filter="landscape" data-value="">All</span>
+        |
+        ${filterList(sunsets,'landscape')}
+    `;
+}

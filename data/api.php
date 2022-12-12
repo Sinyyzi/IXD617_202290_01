@@ -100,6 +100,22 @@ function makeStatement($data) {
             ORDER BY st.sunset_id, st.date_create DESC
             ", $params);
 
+        case "search_sunsets":
+            return makeQuery($conn, "SELECT *
+            FROM `track_202290_sunset_spots`
+            WHERE 
+                `name` LIKE ? AND
+                `user_id` = ?
+            ", $params);
+
+        case "filter_sunsets":
+            return makeQuery($conn, "SELECT *
+            FROM `track_202290_sunset_spots`
+            WHERE 
+                `$params[0]` = ? AND
+                `user_id` = ?
+            ", [$params[1],$params[2]]);
+
 
         /* INSERT */
         case "insert_sunset_spot":
@@ -204,6 +220,19 @@ function makeStatement($data) {
 
             if (isset($result['error'])) return $result;
             return ["result"=>"Success"];
+
+            case "update_sunset_spot_without_img":
+                $result = makeQuery($conn, "UPDATE
+                `track_202290_sunset_spots`
+                SET
+                    `name` = ?,
+                    `landscape` = ?,
+                    `description` = ?
+                WHERE `id` = ?
+                ", $params, false);
+    
+                if (isset($result['error'])) return $result;
+                return ["result"=>"Success"];
         
         case "update_user":
             $result = makeQuery($conn, "UPDATE

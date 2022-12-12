@@ -590,3 +590,37 @@ a {
     background-position:center;
     background-repeat: no-repeat;
 }
+
+#list-page header {
+    display:flex;
+}
+.hotdog {
+    margin: 5px;
+    line-height:var(--header-height);
+    background-color: var(--color-neutral-lighter);
+    border-radius: var(--header-height);
+    width: 100%;
+    display: flex;
+}
+.hotdog input {
+    width:100%;
+    height:100%;
+    background-color: unset;
+    border: unset;
+    outline: unset;
+    padding: unset;
+    margin: unset;
+    vertical-align: middle;
+    font: inherit;
+    padding: 0 1em;
+}
+
+.filter-bar {
+    display:flex;
+    padding-inline: 1em;
+    gap: 1em;
+    overflow:auto;
+}
+.filter-bar span {
+    font-weight:bold;
+}

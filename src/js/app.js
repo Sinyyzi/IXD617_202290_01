@@ -1,4 +1,4 @@
-import { checkSunsetAddForm, checkSunsetEditForm, checkUserEditForm, checkPasswordEditForm, checkSunsetTrackAddForm, checkSignupForm, checkSunsetDeleteForm, checkUserEditPhotoForm, checkSunsetTrackDeleteForm } from "./forms.js";
+import { checkSunsetAddForm, checkSunsetEditForm, checkUserEditForm, checkPasswordEditForm, checkSunsetTrackAddForm, checkSignupForm, checkSunsetDeleteForm, checkUserEditPhotoForm, checkSunsetTrackDeleteForm, checkListFilter, checkListSearchForm } from "./forms.js";
 import { SunsetProfilePage, ChooseLocationPage, ListPage, RecentPage, UserEditPage, UserProfilePage, SunsetAddPage, SunsetEditPage, SunsetTrackAddPage, UserEditPhotoPage } from "./routes.js";
 import { checkSigninForm, checkUserId } from "./signin.js";
 import { checkUpload } from "./functions.js";
@@ -128,6 +128,17 @@ $(() => {
             .siblings().removeClass("active");
     })
 
+    .on("submit", "#list-search-form", function(e) {
+        e.preventDefault();
+        let search = $(this).find("input").val();
+        checkListSearchForm(search);
+    })
+
+    .on("click", "[data-filter]", function(e){
+        let {filter,value} = $(this).data();
+        if (value!=="") checkListFilter(filter,value);
+        else ListPage();
+    })
 
 
     // ACTIVATE TOOLS

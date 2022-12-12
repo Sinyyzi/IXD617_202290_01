@@ -1,6 +1,6 @@
 import { query } from "./functions.js"
 import { makeMap, makeMarkers, makeMarkersForTrack } from "./maps.js";
-import { makeSunsetMapDescription, makeSunsetList, makeSunsetProfileDescription, makeEditSunsetSpotForm, makeUserProfilePage, makeEditUserForm, makeAddSunsetTrackForm, makeSunsetTrackMapDescription} from "./parts.js";
+import { makeSunsetMapDescription, makeSunsetList, makeSunsetProfileDescription, makeEditSunsetSpotForm, makeUserProfilePage, makeEditUserForm, makeAddSunsetTrackForm, makeSunsetTrackMapDescription, makeFilterList } from "./parts.js";
 
 
 export const RecentPage = async() => {
@@ -54,6 +54,7 @@ export const ListPage = async() => {
         $("#list-page .sunsetlist").hide();
     } else {
         $("#list-page .sunsetlist").html(makeSunsetList(sunsets))
+        $(".filter-bar").html(makeFilterList(sunsets))
         $("#list-page .sunsetlist").show();
         $("#list-page .emptylist").hide();    
     }

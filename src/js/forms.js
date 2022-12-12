@@ -1,4 +1,5 @@
 import { query } from "./functions.js";
+import { makeSunsetList } from "./parts.js";
 
 
 export const checkSunsetAddForm = () => {
@@ -35,22 +36,41 @@ export const checkSunsetEditForm = () => {
     let description = $("#sunset-edit-description").val();
     let img = $("#sunset-edit-photo-image").val();
     
-    query({
-        type: 'update_sunset_spot',
-        params: [
-            name,
-            landscape,
-            description,
-            img,
-            sessionStorage.sunsetId
-        ]
-    }).then((data)=>{
-        if (data.error) {
-            throw(data.error);
-        } else {
-            window.history.back();
-        }
-    })
+    if (img != null && img != '') {
+        query({
+            type: 'update_sunset_spot',
+            params: [
+                name,
+                landscape,
+                description,
+                img,
+                sessionStorage.sunsetId
+            ]
+        }).then((data)=>{
+            if (data.error) {
+                throw(data.error);
+            } else {
+                window.history.back();
+            }
+        })
+    } else {
+        query({
+            type: 'update_sunset_spot_without_img',
+            params: [
+                name,
+                landscape,
+                description,
+                sessionStorage.sunsetId
+            ]
+        }).then((data)=>{
+            if (data.error) {
+                throw(data.error);
+            } else {
+                window.history.back();
+            }
+        })
+    }
+    
 }
 
 export const checkUserEditForm = () => {
@@ -201,6 +221,34 @@ export const checkUserEditPhotoForm = () => {
             throw(data.error);
         } else {
             window.history.go(-1);
+        }
+    })
+}
+
+
+export const checkListSearchForm = (search) => {
+    query({
+        type:"search_sunsets",
+        params:[`%${search}%`,sessionStorage.userId]
+    }).then((data)=>{
+        if (data.error) {
+            throw(data.error);
+        } else {
+            let {result} = data;
+            $("#list-page .sunsetlist").html(makeSunsetList(result))
+        }
+    })
+}
+export const checkListFilter = (filter,value) => {
+    query({
+        type:"filter_sunsets",
+        params:[filter,value,sessionStorage.userId]
+    }).then((data)=>{
+        if (data.error) {
+            throw(data.error);
+        } else {
+            let {result} = data;
+            $("#list-page .sunsetlist").html(makeSunsetList(result));
         }
     })
 }

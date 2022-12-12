@@ -126,8 +126,11 @@
     <!-- LIST PAGE -->
     <section data-role="page" id="list-page">
         <header data-role="header">
-            <h1>Sunset Spot List</h1>
+            <form id="list-search-form" class="hotdog" data-ajax="false">
+                <input id="list-search-input" type="search" data-role="none" placeholder="Search">
+            </form>
         </header>
+        <header data-role="header" class="filter-bar"></header>
         <div data-role="main">
             <div class="sunsetlist"></div>
             <div class="emptylist">
