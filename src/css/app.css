@@ -11,7 +11,7 @@
 
     --color-main-rgb: 101,186,183;
     --color-main-hue: 178;
-    --color-main-light: #fdc8b6;
+    --color-main-light: #ffbca5;
     /* --color-main-light: hsl(var(--color-main-hue), 52%, 77%); */
     /* --color-main-medium: hsl(var(--color-main-hue), 38%, 56%); */
 
@@ -73,10 +73,10 @@ a {
 [data-role="header"],
 [data-role="footer"] {
     line-height: var(--header-height);
-    height: 80px;
+    height: 76px;
     position:relative;
     overflow:hidden;
-    background-color:rgb(255, 226, 213);
+    background-color:rgb(255, 230, 219);
     box-shadow: 0 0 2px rgba(0,0,0,0.2);
     color: #CB3C0E;
 }
@@ -208,11 +208,18 @@ a {
     flex-direction:column;
     justify-content: center;
     align-items: center;
+
 }
 .hero-icon {
-    width: 80vw;
+    padding-top: 2rem;
+    width: 50vw;
     aspect-ratio: 1 / 1;
+}
 
+.hero-icon-small {
+    
+    width: 40vw;
+    aspect-ratio: 1 / 1;
 }
 
 
@@ -244,7 +251,8 @@ a {
     width: 5rem;
     height: 5rem;
     text-align:center;
-    background-color:white;
+    background-color:#CB3C0E;
+    color: white;
     display: block;
     box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.2);
 }
@@ -417,7 +425,7 @@ a {
 
 
 .sunset-profile-top {
-    height:20vh;
+    height:30vh;
     flex:none;
     background-position:center;
     background-size:cover;
@@ -492,9 +500,9 @@ a {
     text-overflow: ellipsis;
     word-wrap: break-word;
     overflow: hidden;
-    max-height: 2em;
+    max-height: 3em;
     line-height: 1em;
-    margin-top: 1em;
+    margin-top: 0.6em;
 }
 
 .icon {
@@ -539,7 +547,10 @@ a {
 }
 .settings li {
     padding: 1em 1em;
+}
 
+.settings .js-logout{
+    color: red;
 }
 
 
@@ -599,9 +610,10 @@ a {
     display:flex;
 }
 .hotdog {
-    margin: 5px;
+    margin: 8px;
+    margin-top: 6px;
     line-height:var(--header-height);
-    background-color: var(--color-neutral-lighter);
+    background-color: rgb(251, 242, 242);
     border-radius: var(--header-height);
     width: 100%;
     display: flex;
@@ -700,8 +712,16 @@ a {
 .profile-edit-button img {
     width: 20px;
     margin: 8px;
+    margin-left: 20px;
 }
 
 .profile-edit-button p {
     margin-left: 5%;
+}
+
+
+
+.section-description{
+    width: 80%;
+    margin: 20px;
 }
