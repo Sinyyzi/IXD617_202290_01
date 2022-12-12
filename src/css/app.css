@@ -45,6 +45,7 @@ a {
 
 
 
+
 /* APP STRUCTURE */
 .ui-loader {
     display:none;
@@ -166,6 +167,7 @@ a {
     display: inline-block;
     width: 100%;
     font: inherit;
+    outline-color:#ffbca5;
 }
 
 
@@ -429,10 +431,12 @@ a {
     flex:none;
     background-position:center;
     background-size:cover;
+    border-radius: 12px;
 }
 .sunset-profile-nav {
     flex:none;
-    line-height:var(--header-height);
+    /* line-height:var(--header-height); */
+    line-height: 7vh;
     display:flex;
 }
 .nav-link {
@@ -441,6 +445,7 @@ a {
 }
 .nav-link.active {
     background-color:var(--color-main-light);
+    color:#CB3C0E;
 }
 .sunset-profile-top {
     position:relative;
@@ -503,6 +508,20 @@ a {
     max-height: 3em;
     line-height: 1em;
     margin-top: 0.6em;
+}
+
+.description-landscape{
+    display: flex;
+    margin-bottom: 20px;
+    color:#646B8A;
+    vertical-align:middle;
+    align-items:center;
+}
+
+.description-detail{
+    color:#646B8A;
+    display: flex;
+    align-items:center;
 }
 
 .icon {
@@ -724,4 +743,17 @@ a {
 .section-description{
     width: 80%;
     margin: 20px;
+}
+
+.profileCard{
+    /* margin-left: 16px;
+    margin-right: 16px; */
+    padding: 20px;
+    background-color: #fff9f9;
+}
+
+.nav-link{
+    background-color: #fff1f2;
+    color: #939393;
+    font-weight: bold;
 }

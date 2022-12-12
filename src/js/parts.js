@@ -39,9 +39,9 @@ export const makeSunsetList = templater(({id,name,landscape,img})=>`
 `)
 
 export const makeSunsetProfileDescription = ({name,landscape,description})=>`
-<h2>${name}</h2>
-<div>${landscape}</div>
-<div>${description}</div>
+<h2 class="h2-title">${name}</h2>
+<div class="description-landscape"><img class="icon" src="images/landscape.svg" style="font-size:2em" />${landscape}</div>
+<div class="description-detail"><img class="icon" src="images/comments.svg" style="font-size:2em" />${description}</div>
 `
 
 const FormControlInput = ({namespace,name,displayname,type,placeholder,value}) => {
