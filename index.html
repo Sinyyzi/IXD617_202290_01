@@ -12,6 +12,7 @@
 
     <!-- <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css"> -->
     <link rel="stylesheet" href="src/css/app.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     
     <script src="lib/js/jquery-2.2.4.min.js"></script>
     <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -27,9 +28,7 @@
     <meta http-Equiv="Expires" Content="0" />
 
 </head>
-<body>
-    <!-- <iframe src="chasing/login.html" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">></iframe> -->
-    
+<body>    
     <section data-role="page" id="signin-page">
         <div data-role="main" class="display-flex flex-column flex-justify-center">
             <div class="flex-stretch signin-hero">
@@ -110,17 +109,15 @@
         <footer data-role="footer">
             <ul>
                 <li><a href="#recent-page">
-                    <span class="footer-icon"><img class="icon" src="images/map.svg"></span>
+                    <span class="footer-icon" ><img class="icon" src="images/recent-new.svg"></span>
                     <span class="footer-label">Recent</span>
                 </a></li>
                 <li><a href="#list-page">
-                    <span class="footer-icon"><img class="icon" src="images/list.svg"></span>
-                    <span class="footer-label">List</span>
-                </a></li>
+                    <span class="footer-icon"><img class="icon" src="images/sunlist-new-b.svg"></span>
+                    <span class="footer-label" style="color:rgb(68, 68, 68);">List</span></a></li>
                 <li><a href="#user-profile-page">
-                    <span class="footer-icon"><img class="icon" src="images/profile.svg"></span>
-                    <span class="footer-label">Profile</span>
-                </a></li>
+                    <span class="footer-icon"><img class="icon" src="images/profile-new-b.svg"></span>
+                    <span class="footer-label" style="color:rgb(68, 68, 68);">Profile</span></a></li>
             </ul>
         </footer>
     </section>
@@ -133,6 +130,13 @@
         </header>
         <div data-role="main">
             <div class="sunsetlist"></div>
+            <div class="emptylist">
+                <div class="sunsetlist-empty-image">
+                    <img src="images/empty-state.svg">
+                    <span>You havent add any sunset spots yet</span>
+                </div>
+
+            </div>
             <div class="floater bottom right">
                 <a href="#sunset-add-page" class="btn-circle">&plus;</a>
             </div>
@@ -140,34 +144,27 @@
         <footer data-role="footer">
             <ul>
                 <li><a href="#recent-page">
-                    <span class="footer-icon"><img class="icon" src="images/map.svg"></span>
-                    <span class="footer-label">Recent</span>
+                    <span class="footer-icon" ><img class="icon" src="images/recent-new-b.svg"></span>
+                    <span class="footer-label" style="color:rgb(48, 48, 48);">Recent</span>
                 </a></li>
                 <li><a href="#list-page">
-                    <span class="footer-icon"><img class="icon" src="images/list.svg"></span>
+                    <span class="footer-icon"><img class="icon" src="images/sunlist-new.svg"></span>
                     <span class="footer-label">List</span></a></li>
                 <li><a href="#user-profile-page">
-                    <span class="footer-icon"><img class="icon" src="images/profile.svg"></span>
-                    <span class="footer-label">Profile</span></a></li>
+                    <span class="footer-icon"><img class="icon" src="images/profile-new-b.svg"></span>
+                    <span class="footer-label" style="color:rgb(68, 68, 68);">Profile</span></a></li>
             </ul>
         </footer>
-
-        <div id="list-add-modal" class="modal">
-            <div class="modal-back" data-deactivate="#list-add-modal"></div>
-            <div class="modal-popup">
-                <div class="modal-head">Head</div>
-                <div class="modal-body">Body</div>
-                <div class="modal-foot">Foot</div>
-            </div>
-        </div>
     </section>
 
     <!-- SUNSET ADD PAGE -->
     <section data-role="page" id="sunset-add-page">
         <header data-role="header">
-            <h1>Add an Sunset Spot</h1>
+            <h1>Add A Sunset Spot</h1>
             <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
+                <li><a href="#" data-rel="back">
+                    <img class="icon" src="images/arrow-back.svg">
+                </a></li>
                 <li class="flex-stretch"></li>
             </ul>
         </header>
@@ -187,7 +184,9 @@
         <header data-role="header">
             <h1>Edit Sunset Spot</h1>
             <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
+                <li><a href="#" data-rel="back">
+                    <img class="icon" src="images/arrow-back.svg">
+                </a></li>
                 <li class="flex-stretch"></li>
                 <li><a href="#" class="js-sunset-delete">Delete</a></li>
             </ul>
@@ -207,7 +206,9 @@
         <header data-role="header">
             <h1>Choose Location</h1>
             <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
+                <li><a href="#" data-rel="back">
+                    <img class="icon" src="images/arrow-back.svg">
+                </a></li>
                 <li class="flex-stretch"></li>
                 <li><a href="#add-sunset-track-page">Next</a></li>
             </ul>
@@ -224,7 +225,9 @@
         <header data-role="header">
             <h1>Upload Sunset Photo</h1>
             <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
+                <li><a href="#" data-rel="back">
+                    <img class="icon" src="images/arrow-back.svg">
+                </a></li>
                 <li class="flex-stretch"></li>
                 <li><a href="#list-page" class="js-submit-sunset-track-add-form">Save</a></li>
             </ul>
@@ -239,7 +242,9 @@
     <!-- USER PROFILE PAGE -->
     <section data-role="page" id="user-profile-page">
         <div data-role="main">
-            <div class="body"></div>
+            <div class="body">
+
+            </div>
 
             <div class="floater top right">
                 <a href="#user-settings-page">
@@ -250,14 +255,14 @@
         <footer data-role="footer">
             <ul>
                 <li><a href="#recent-page">
-                    <span class="footer-icon"><img class="icon" src="images/map.svg"></span>
-                    <span class="footer-label">Recent</span>
+                    <span class="footer-icon" ><img class="icon" src="images/recent-new-b.svg"></span>
+                    <span class="footer-label" style="color:black;">Recent</span>
                 </a></li>
                 <li><a href="#list-page">
-                    <span class="footer-icon"><img class="icon" src="images/list.svg"></span>
-                    <span class="footer-label">List</span></a></li>
+                    <span class="footer-icon"><img class="icon" src="images/sunlist-new-b.svg"></span>
+                    <span class="footer-label" style="color:black;">List</span></a></li>
                 <li><a href="#user-profile-page">
-                    <span class="footer-icon"><img class="icon" src="images/profile.svg"></span>
+                    <span class="footer-icon"><img class="icon" src="images/profile-new.svg"></span>
                     <span class="footer-label">Profile</span></a></li>
             </ul>
         </footer>
@@ -268,7 +273,9 @@
         <header data-role="header">
             <h1>Settings</h1>
             <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
+                <li><a href="#" data-rel="back">
+                    <img class="icon" src="images/arrow-back.svg">
+                </a></li>
             </ul>
         </header>
         <div data-role="main">
@@ -285,9 +292,9 @@
         <header data-role="header">
             <h1>Edit User</h1>
             <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
-                <li class="flex-stretch"></li>
-                <li><a href="#" class="js-submit-user-edit-form">Submit</a></li>
+                <li><a href="#" data-rel="back">
+                    <img class="icon" src="images/arrow-back.svg">
+                </a></li>
             </ul>
         </header>
         <form data-role="main" data-ajax="false" id="user-edit-form" class="padded display-flex flex-column full overscroll">
@@ -295,7 +302,7 @@
             <div class="flex-stretch"></div>
             
             <div class="form-control">
-                <input class="form-button" type="submit" data-role="none" value="Submit">
+                <input class="form-button js-submit-user-edit-form" type="submit" data-role="none" value="Submit">
             </div>
         </form>
     </section>
@@ -305,9 +312,9 @@
         <header data-role="header">
             <h1>Edit Password</h1>
             <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
-                <li class="flex-stretch"></li>
-                <li><a href="#" class="js-submit-password-edit-form">Submit</a></li>
+                <li><a href="#" data-rel="back">
+                    <img class="icon" src="images/arrow-back.svg">
+                </a></li>
             </ul>
         </header>
         <form data-role="main" data-ajax="false" id="password-edit-form" class="padded display-flex flex-column full overscroll">
@@ -321,6 +328,11 @@
                     <input class="form-input" type="password" id="password-edit-confirm" data-role="none" placeholder="Type the same password">
                 </div>
             </div>
+            <div class="flex-stretch"></div>
+            
+            <div class="form-control">
+                <input class="form-button js-submit-password-edit-form" type="submit" data-role="none" value="Submit">
+            </div>
         </form>
     </section>
 
@@ -329,7 +341,9 @@
         <header data-role="header">
             <h1>Edit User Photo</h1>
             <ul>
-                <li><a href="#" data-rel="back">Back</a></li>
+                <li><a href="#" data-rel="back">
+                    <img class="icon" src="images/arrow-back.svg">
+                </a></li>
                 <li class="flex-stretch"></li>
                 <li><a href="#" class="js-submit-user-edit-photo-form">Submit</a></li>
             </ul>
@@ -349,17 +363,27 @@
         <header data-role="header">
             <h1></h1>
             <ul>
-                <li><a href="#list-page">Back</a></li>
+                <li><a href="#list-page">
+                    <img class="icon" src="images/arrow-back.svg">
+                </a></li>
                 <li class="flex-stretch"></li>
-                <li><a href="#sunset-edit-page">Edit</a></li>
+                <li><a href="#sunset-edit-page">
+                    <img class="icon" src="images/edit.svg">
+                </a></li>
             </ul>
         </header>
         <div data-role="main">
-            <div class="sunset-profile-top"></div>
-            <div class="sunset-profile-nav">
-                <div class="nav-link active">Map</div>
-                <div class="nav-link">Description</div>
+            <div class="profileCard">
+                <div class="sunset-profile-top">
+                    <div class="profile-image"></div>
+                </div>
             </div>
+
+                <div class="sunset-profile-nav">
+                    <div class="nav-link active">Map</div>  
+                    <div class="nav-link">Description</div>
+                </div>
+
             <div class="sunset-profile-bottom">
                 <div class="sunset-profile-section section-map active">
                     <div class="map"></div>

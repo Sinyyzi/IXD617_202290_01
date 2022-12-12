@@ -93,8 +93,6 @@ export const checkPasswordEditForm = () => {
     }).then((data)=>{
         if (data.error) {
             throw(data.error);
-        } else {
-            window.history.go(-1);
         }
     })
 }
@@ -122,7 +120,7 @@ export const checkSunsetTrackAddForm = () => {
         if (data.error) {
             throw(data.error);
         } else {
-            window.history.go(-1);
+            $.mobile.navigate("#sunset-profile-page");
         }
     })
 }
@@ -171,6 +169,20 @@ export const checkSunsetDeleteForm = () => {
             throw(data.error);
         } else {
             $.mobile.navigate("#list-page");
+        }
+    })
+}
+
+export const checkSunsetTrackDeleteForm = () => {
+    console.log(sessionStorage.sunsetTrackId);
+    query({
+        type:"delete_sunset_track",
+        params:[sessionStorage.sunsetTrackId]
+    }).then((data)=>{
+        if (data.error) {
+            throw(data.error);
+        } else {
+            window.history.go(0);
         }
     })
 }

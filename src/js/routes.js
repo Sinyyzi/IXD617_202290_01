@@ -1,6 +1,6 @@
 import { query } from "./functions.js"
-import { makeMap, makeMarkers } from "./maps.js";
-import { makeSunsetMapDescription, makeSunsetList, makeSunsetProfileDescription, makeEditSunsetSpotForm, makeUserProfilePage, makeEditUserForm, makeAddSunsetTrackForm} from "./parts.js";
+import { makeMap, makeMarkers, makeMarkersForTrack } from "./maps.js";
+import { makeSunsetMapDescription, makeSunsetList, makeSunsetProfileDescription, makeEditSunsetSpotForm, makeUserProfilePage, makeEditUserForm, makeAddSunsetTrackForm, makeSunsetTrackMapDescription} from "./parts.js";
 
 
 export const RecentPage = async() => {
@@ -8,7 +8,6 @@ export const RecentPage = async() => {
         type:"recent_sunset_locations",
         params:[sessionStorage.userId]
     });
-    console.log(sunset_locations);
 
     let valid_sunset = sunset_locations.reduce((r,o)=>{
         o.icon = o.img;
@@ -24,7 +23,6 @@ export const RecentPage = async() => {
         m.addListener("click",function(e){
             // console.log(e)
             let sunset = valid_sunset[i];
-            console.log(sunset)
 
             // Just Navigate
             // sessionStorage.animalId = animal.animal_id;
@@ -46,14 +44,19 @@ export const RecentPage = async() => {
 
 export const ListPage = async() => {
 
-    let {result:sunset} = await query({
+    let {result:sunsets} = await query({
         type:"sunset_spots_by_user_id",
         params:[sessionStorage.userId]
     });
 
-    console.log(sunset)
-
-    $("#list-page .sunsetlist").html(makeSunsetList(sunset))
+    if (sunsets.length == 0) {
+        $("#list-page .emptylist").show();
+        $("#list-page .sunsetlist").hide();
+    } else {
+        $("#list-page .sunsetlist").html(makeSunsetList(sunsets))
+        $("#list-page .sunsetlist").show();
+        $("#list-page .emptylist").hide();    
+    }
 }
 
 export const UserProfilePage = async() => {
@@ -92,10 +95,31 @@ export const SunsetProfilePage = async() => {
         type:"sunset_tracks_by_spot_id",
         params:[sessionStorage.sunsetId]
     });
-    console.log(spots);
 
     let map_el = await makeMap("#sunset-profile-page .map");
-    makeMarkers(map_el,spots);
+    makeMarkersForTrack(map_el,spots);
+    map_el.data("markers").forEach((m,i)=>{
+        // console.log(m)
+        m.addListener("click",function(e){
+            // console.log(e)
+            let spot = spots[i];
+
+            // Just Navigate
+            // sessionStorage.animalId = animal.animal_id;
+            // $.mobile.navigate("#animal-profile-page")
+
+            // Open Google InfoWindow
+            let {map,infoWindow} = map_el.data();
+            infoWindow.open(map, m);
+            infoWindow.setContent(makeSunsetTrackMapDescription(spot));
+
+            // Top modal
+            // $("#map-recent-modal")
+            //     .addClass("active")
+            //     .find(".modal-body")
+            //     .html(makeSunsetMapDescription(sunset))
+        })
+    });
 }
 
 

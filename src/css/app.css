@@ -11,13 +11,15 @@
 
     --color-main-rgb: 101,186,183;
     --color-main-hue: 178;
-    --color-main-light: hsl(var(--color-main-hue), 52%, 77%);
+    --color-main-light: #fdc8b6;
+    /* --color-main-light: hsl(var(--color-main-hue), 52%, 77%); */
     /* --color-main-medium: hsl(var(--color-main-hue), 38%, 56%); */
+
     --color-main-medium: #CB3C0E;
     --color-main-dark: hsl(var(--color-main-hue), 57%, 27%);
 
     --color-neutral-lighter: rgb(234, 238, 236);
-    --color-neutral-light: rgb(194, 202, 198);
+    --color-neutral-light: rgb(216, 223, 219);
     --color-neutral-medium: rgb(111, 121, 116);
     --color-neutral-dark: rgb(37, 44, 41);
 }
@@ -27,13 +29,18 @@ body {
     font-family:var(--font-body);
 }
 
+
 a {
     color:var(--color-main-medium);
-    font-weight: bold;
+    font-weight: regular;
     text-decoration: none;
 }
 
 
+.settings a{
+    color: var(--color-neutral-medium);
+    font-size: 16px;
+}
 
 
 
@@ -59,20 +66,19 @@ a {
 [data-role="main"] {
     flex: 1 1 100%;
     position: relative;
-
+    overflow: hidden;
     z-index:1;
 }
 
 [data-role="header"],
 [data-role="footer"] {
     line-height: var(--header-height);
-    height: var(--header-height);
+    height: 80px;
     position:relative;
     overflow:hidden;
     background-color:rgb(255, 226, 213);
     box-shadow: 0 0 2px rgba(0,0,0,0.2);
-
-    z-index:2;
+    color: #CB3C0E;
 }
 
 [data-role="header"]:last-of-type,
@@ -162,6 +168,10 @@ a {
     font: inherit;
 }
 
+
+  
+
+
 .form-input.body {
     display: flex;
     border-width: 0;
@@ -225,13 +235,14 @@ a {
 .floater.right { right: 1rem; }
 .floater.bottom { bottom: 1rem; }
 .floater.left { left: 1rem; }
+.floater.middle { top: 50%; }
 
 .btn-circle {
-    border-radius: 2rem;
-    line-height: 3rem;
-    font-size:2.5em;
-    width: 3rem;
-    height: 3rem;
+    border-radius: 4rem;
+    line-height: 5rem;
+    font-size:3rem;
+    width: 5rem;
+    height: 5rem;
     text-align:center;
     background-color:white;
     display: block;
@@ -340,41 +351,35 @@ a {
 .sunsetlist {
     height: 100%;
     position:relative;
-    overflow:auto;
+    overflow-y:auto;
 
     padding: 1em;
 }
 
-
-
-
 [data-role="footer"] .icon {
-    width: 1.3rem;
-    height: 1.3rem;
+    width: 1.6rem;
+    height: 1.6rem;
     vertical-align: middle;
 }
 [data-role="footer"] a {
     line-height: 1rem;
     color: inherit;
 }
+
+[data-role="footer"] a:hover{
+    color:rgb(246, 154, 55)
+}
 .footer-icon {
     display: block;
-    line-height: 2rem;
+    line-height: 2.5rem;
 }
 .footer-label {
     line-height: 0.8rem;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     display: block;
 }
 
 
-
-
-
-
-.sunsetlist {
-    overflow-y:auto;
-}
 .sunsetlist-item {
     display: flex;
     box-shadow: 0 2px 5px rgb(0 0 0 / 15%);
@@ -397,6 +402,9 @@ a {
 .sunsetlist-name {
     font-size:1.3em;
 }
+.sunsetlist-landscape {
+    margin-top: 1.5em;
+}
 
 
 
@@ -405,8 +413,11 @@ a {
     display:flex;
     flex-direction:column;
 }
+
+
+
 .sunset-profile-top {
-    height:30vh;
+    height:20vh;
     flex:none;
     background-position:center;
     background-size:cover;
@@ -461,11 +472,44 @@ a {
     margin:0;
 }
 
+.sunset-track-map-description {
+    display:flex;
+}
+.sunset-track-map-image img{
+    width:120px;
+    aspect-ratio: 1 / 1;
+    vertical-align: middle;
+    object-fit:cover;
+}
+.sunset-track-map-body {
+  padding-left: 1em;
+}
+.sunset-track-map-body h1 {
+    margin:0;
+}
+.sunset-track-body-description {
+    display: inline-block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 2em;
+    line-height: 1em;
+    margin-top: 1em;
+}
+
 .icon {
     font-size: 1em;
     width: 1em;
     height: 1em;
 }
+
+.user-profile-image{
+    margin: auto;
+    margin-top: 30%;
+    width: 200px;
+    height: 200px;
+}
+
 
 .user-profile-image img {
     width:100%;
@@ -475,7 +519,7 @@ a {
     object-fit: cover;
     aspect-ratio: 1/ 1;
     border-radius: 50%;
-    padding:6em;
+    padding:2em;
 }
 .user-profile-body {
     padding:2em;
@@ -493,6 +537,32 @@ a {
     padding: 1em 1em;
 
 }
+
+
+.sunsetlist-empty-image {
+    margin: auto;
+    margin-top: 40%;
+    width: 300px;
+    height: 200px;
+    text-align: center;
+}
+.sunsetlist-empty-image img {
+    width:100%;
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+    object-fit: cover;
+    padding:2em;
+    vertical-align: text-top;
+}
+
+.sunsetlist-empty-image span {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    color: #646B8A;
+}
+
+
 .settings li~li {
     border-top: 1px solid var(--color-neutral-lighter);
 }

@@ -239,6 +239,15 @@ function makeStatement($data) {
             if (isset($result['error'])) return $result;
             return ["result"=>"Success"];
 
+        case "delete_sunset_track":
+            $result = makeQuery($conn, "DELETE FROM
+            `track_202290_sunset_tracks`
+            WHERE `id` = ?
+            ", $params, false);
+
+            if (isset($result['error'])) return $result;
+            return ["result"=>"Success"];
+
         /* UPLOAD */
         case "update_user_photo":
             $result = makeQuery($conn, "UPDATE

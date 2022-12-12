@@ -1,4 +1,4 @@
-import { checkSunsetAddForm, checkSunsetEditForm, checkUserEditForm, checkPasswordEditForm, checkSunsetTrackAddForm, checkSignupForm, checkSunsetDeleteForm, checkUserEditPhotoForm } from "./forms.js";
+import { checkSunsetAddForm, checkSunsetEditForm, checkUserEditForm, checkPasswordEditForm, checkSunsetTrackAddForm, checkSignupForm, checkSunsetDeleteForm, checkUserEditPhotoForm, checkSunsetTrackDeleteForm } from "./forms.js";
 import { SunsetProfilePage, ChooseLocationPage, ListPage, RecentPage, UserEditPage, UserProfilePage, SunsetAddPage, SunsetEditPage, SunsetTrackAddPage, UserEditPhotoPage } from "./routes.js";
 import { checkSigninForm, checkUserId } from "./signin.js";
 import { checkUpload } from "./functions.js";
@@ -55,6 +55,8 @@ $(() => {
 
     .on("click", ".js-logout", function(e) {
         sessionStorage.removeItem("userId");
+        sessionStorage.removeItem("sunsetId");
+        sessionStorage.removeItem("sunsetTrackId");
         checkUserId();
     })
 
@@ -64,13 +66,17 @@ $(() => {
 
         sessionStorage.sunsetId = id;
     })
-    .on("click", ".location-jump", function(e) {
+    .on("click", ".sunset-track-jump", function(e) {
         let id = $(this).data("id");
 
-        sessionStorage.locationId = id;
+        sessionStorage.sunsetTrackId = id;
+        console.log(id);
     })
     .on("click", ".js-sunset-delete", function(e) {
         checkSunsetDeleteForm();
+    })
+    .on("click", ".js-sunset-track-delete", function(e) {
+        checkSunsetTrackDeleteForm();
     })
     .on("click", ".js-choose-sunset-spot-for-track", function(e) {
         $("#location-sunset-id").val(sessionStorage.sunsetId);
@@ -92,6 +98,10 @@ $(() => {
     })
     .on("click", ".js-submit-password-edit-form", function(e) {
         checkPasswordEditForm();
+        sessionStorage.removeItem("userId");
+        sessionStorage.removeItem("sunsetId");
+        sessionStorage.removeItem("sunsetTrackId");
+        checkUserId();
     })
     .on("click", ".js-submit-user-edit-photo-form", function(e) {
         checkUserEditPhotoForm();

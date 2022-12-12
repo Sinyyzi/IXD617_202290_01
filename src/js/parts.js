@@ -12,13 +12,28 @@ export const makeSunsetMapDescription = ({name,landscape,img}) => {
     </div>`;
 }
 
-export const makeSunsetList = templater(({id,name,landscape,date_create,img})=>`
+export const makeSunsetTrackMapDescription = ({id,description,weather,photo,sunset_time}) => {
+    return `<div class="sunset-track-map-description">
+        <div class="sunset-track-map-image">
+            <img src="${photo}" />
+        </div>
+        <div class="sunset-track-map-body">
+            <h1>${weather}</h1>
+            <div>${sunset_time}</div>
+            <div class="sunset-track-body-description">${description}</div>
+            <div class="floater bottom right">
+                <a href="#" class="js-sunset-track-delete sunset-track-jump" data-id="${id}"><img class="icon" src="images/trash.svg" style="font-size:1em" /></a>
+            </div>
+        </div>
+    </div>`;
+}
+
+export const makeSunsetList = templater(({id,name,landscape,img})=>`
 <a class="sunsetlist-item sunset-jump" href="#sunset-profile-page" data-id="${id}">
     <div class="sunsetlist-image"><img src="${img}"></div>
     <div class="sunsetlist-body">
         <div class="sunsetlist-name">${name}</div>
         <div class="sunsetlist-landscape">${landscape}</div>
-        <div class="sunsetlist-time">${date_create}</div>
     </div>
 </a>
 `)
