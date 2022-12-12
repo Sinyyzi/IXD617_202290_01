@@ -114,6 +114,27 @@ export const makeUserProfilePage = ({name,email,username,img})=>`
         <div class="user-profile-username">@${username}</div>
         <div class="user-profile-email">${email}</div>
     </div>
+    
+    <a href="#user-edit-photo-page">
+        <div class="profile-edit-button">     
+            <img src="images/edit-avatar.svg">
+            <p>Edit Avatar</p>
+        </div>
+    </a>
+    
+    <a href="#user-edit-page">
+        <div class="profile-edit-button">     
+            <img src="images/edit-profile.svg">
+            <p>Edit Profile</p>
+        </div>
+    </a>
+
+    <a href="#user-settings-page">
+        <div class="profile-edit-button">     
+            <img src="images/setting-icon.svg">
+            <p>Settings</p>
+        </div>
+    </a>
 </div>
 `
 

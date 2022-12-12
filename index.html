@@ -99,11 +99,17 @@
                 <a href="#sunset-add-page" class="btn-circle">&plus;</a>
             </div>
 
-            <div id="map-recent-modal" class="modal">
-                <div class="modal-back transparent" data-deactivate="#map-recent-modal"></div>
-                <div class="modal-drawer island top">
-                    <div class="modal-body"></div>
+            <div class="snackbar">
+                <div class="snackbar-flex">
+                    <div>
+                        <span style="color: #646B8A">Welcome! Start to add your first </span>
+                        <span style="color: #CB3C0E">sunset!</span> 
+                    </div>
+                    
+                    <span><img class="snackbar-icon" src="images/arrow_right.svg"></span>
                 </div>
+            
+               
             </div>
         </div>
         <footer data-role="footer">
@@ -125,7 +131,10 @@
 
     <!-- LIST PAGE -->
     <section data-role="page" id="list-page">
-        <header data-role="header">
+        <header data-role="header" id="list-page-empty-header">
+            <h1>My Sunsets</h1>
+        </header>
+        <header data-role="header" id="list-page-search-header">
             <form id="list-search-form" class="hotdog" data-ajax="false">
                 <input id="list-search-input" type="search" data-role="none" placeholder="Search">
             </form>
@@ -245,15 +254,7 @@
     <!-- USER PROFILE PAGE -->
     <section data-role="page" id="user-profile-page">
         <div data-role="main">
-            <div class="body">
-
-            </div>
-
-            <div class="floater top right">
-                <a href="#user-settings-page">
-                    <img class="icon" style="font-size:1.3em" src="images/menu.svg" />
-                </a>
-            </div>
+            <div class="body"></div>
         </div>
         <footer data-role="footer">
             <ul>
@@ -283,7 +284,6 @@
         </header>
         <div data-role="main">
             <div class="settings">
-                <li><a href="#user-edit-page">Edit User</a></li>
                 <li><a href="#password-edit-page">Edit Password</a></li>
                 <li><a href="#" class="js-logout">Log out</a></li>
             </ul>
@@ -347,8 +347,6 @@
                 <li><a href="#" data-rel="back">
                     <img class="icon" src="images/arrow-back.svg">
                 </a></li>
-                <li class="flex-stretch"></li>
-                <li><a href="#" class="js-submit-user-edit-photo-form">Submit</a></li>
             </ul>
         </header>
         <form data-role="main" data-ajax="false" id="user-edit-photo-form" class="padded display-flex flex-column full overscroll">
@@ -356,6 +354,10 @@
             <label class="body imagepicker replace">
                 <input type="file" id="user-edit-photo-input" data-role="none" class="hidden">
             </label>
+
+            <div class="form-control">
+                <input class="form-button js-submit-user-edit-photo-form" type="submit" data-role="none" value="Submit">
+            </div>
         </form>
     </section>
 

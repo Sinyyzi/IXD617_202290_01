@@ -40,6 +40,13 @@ export const RecentPage = async() => {
             //     .html(makeSunsetMapDescription(sunset))
         })
     });
+
+    if (sunset_locations.length == 0) {
+        $(".snackbar").addClass("show");
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ $(".snackbar").removeClass("show"); }, 7000);
+    }
 }
 
 export const ListPage = async() => {
@@ -52,11 +59,21 @@ export const ListPage = async() => {
     if (sunsets.length == 0) {
         $("#list-page .emptylist").show();
         $("#list-page .sunsetlist").hide();
+
+        // header visibilities
+        $("#list-page-empty-header").show();
+        $("#list-page-search-header").hide();
+        $("#list-page .filter-bar").hide();
     } else {
         $("#list-page .sunsetlist").html(makeSunsetList(sunsets))
-        $(".filter-bar").html(makeFilterList(sunsets))
+        $("#list-page .filter-bar").html(makeFilterList(sunsets))
         $("#list-page .sunsetlist").show();
-        $("#list-page .emptylist").hide();    
+        $("#list-page .emptylist").hide();
+        
+        // header visibilities
+        $("#list-page-empty-header").hide();
+        $("#list-page-search-header").show();
+        $("#list-page .filter-bar").show();
     }
 }
 
