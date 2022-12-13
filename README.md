@@ -14,6 +14,7 @@ IXD 617 Advanced Tech: Mobile Web
 
 ### Screenshots
 - http://xinyi-shen.com/aau/IXD617/screenshots/midterm
+- http://xinyi-shen.com/aau/IXD617/screenshots/final/index.html
 
 ### Source
 - https://www.mockplus.com/blog/post/login-page-examples
